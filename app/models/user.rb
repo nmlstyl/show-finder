@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class User < ApplicationRecord
   # users.password_hash in the database is a :string
   include BCrypt
