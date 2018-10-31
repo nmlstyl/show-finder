@@ -27,7 +27,7 @@ gem 'puma', '~> 3.7'
 
 # added gems
 gem 'foreman', '~> 0.82.0'
-gem 'active_model_serializers'
+gem 'active_model_serializers', '~> 0.10.0'
 gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails', groups: [:development, :test]
 
