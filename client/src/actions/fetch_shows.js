@@ -1,11 +1,10 @@
-
 import fetch from 'isomorphic-fetch';
 
-export function fetchByArtist(artist_name) {
+export function fetchShows(artist_id) {
   return (dispatch) => {
     dispatch({type: 'LOADING_SHOWS'})
-    return fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${ENV['SONGKICK_API_KEY']}&query=${artist_name}`)
+    return fetch(`https://api.songkick.com/api/3.0/artists/${artist_id}/calendar.json?apikey=${ENV['SONGKICK_API_KEY']}`)
       .then(response => response.json())
-      .then(shows => dispatch({type: 'FETCH_SHOWS', payload: cats.shows}) )
+      .then(artist => dispatch({type: 'FETCH_ARTIST', payload: shows}) )
     }
 }
