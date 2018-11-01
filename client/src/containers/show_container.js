@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ShowForm from '../components/show_form'
+import ShowForm from '../components/shows/show_form'
+import Shows from '../components/shows/shows'
 
 class ShowContainer extends Component {
 
@@ -7,8 +8,9 @@ class ShowContainer extends Component {
     return (
       <div>
         Find Shows By:
-        <br /><br /> 
+        <br /><br />
         <ShowForm />
+        <Shows />
       </div>
     )
   }
