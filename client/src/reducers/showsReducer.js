@@ -1,6 +1,6 @@
 export default function showsReducer(state = {shows: [], loading: false }, action) {
   switch (action.type) {
-    case 'LOADING':
+    case 'LOADING_SHOWS':
       return Object.assign({}, state, {loading: true})
 
     case 'FETCH_SHOWS':
