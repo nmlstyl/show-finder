@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import ShowContainer from './containers/show_container'
+import QueryByNameContainer from './containers/query_by_name_container'
 
 
 class App extends Component {
@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ShowContainer />
+        <QueryByNameContainer />
       </div>
     );
   }

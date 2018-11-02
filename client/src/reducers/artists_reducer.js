@@ -1,10 +1,14 @@
-export default function artistsReducer(state = {artists: [], shows: [] }, action) {
+export default function artistsReducer(state = {artists: [], shows: [], loading: false }, action) {
   switch (action.type) {
-    case 'FETCH_ARTIST':
-      return {artists: action.payload, shows: state.shows}
+    case 'LOADING':
+      return Object.assign({}, state, {loading: true})
+
+    case 'FETCH_ARTISTS':
+      return {loading: false, artists: action.payload}
 
     case 'FETCH_SHOWS':
-      return {artists: state.artists, shows: action.payload}
+      const showsData = action.payload.map(show => show.displayName)
+      return {loading: false, shows: showsData}
 
     default:
       return state;

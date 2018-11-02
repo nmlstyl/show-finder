@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class ShowForm extends Component {
+class ArtistForm extends Component {
 
   state = {
     bandText: ''
@@ -33,4 +33,4 @@ class ShowForm extends Component {
   }
 }
 
-export default ShowForm;
+export default ArtistForm;
