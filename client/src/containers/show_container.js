@@ -13,7 +13,7 @@ class ShowContainer extends Component {
       <div>
         Find Shows By:
         <br /><br />
-        <ShowForm />
+        <ShowForm fetchByArtist={ this.props.actions.fetchByArtist } />
         <Shows />
       </div>
     )

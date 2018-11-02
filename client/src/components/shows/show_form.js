@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 class ShowForm extends Component {
 
   state = {
-    bandText: '',
-    cityText: ''
+    bandText: ''
   }
 
   handleChange = (event) => {
-    console.log(this.state)
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -16,6 +14,7 @@ class ShowForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
+    this.props.fetchByArtist(this.state.bandText)
     this.setState({
       [event.target.name]: ''
     })
@@ -29,14 +28,6 @@ class ShowForm extends Component {
         <input type='text' name='bandText' onChange={ event => this.handleChange(event) } value={ this.state.bandText } />
         <input type='submit' />
         </form><br />
-
-        OR<br /><br />
-
-        <form name='cityText' onSubmit={ event => this.handleOnSubmit(event) }>
-        City: <br />
-        <input type='text' name='cityText' onChange={ event => this.handleChange(event) } value={ this.state.cityText } />
-        <input type='submit' />
-        </form><br /><br />
       </div>
     )
   }
