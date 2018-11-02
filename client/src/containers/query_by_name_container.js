@@ -22,9 +22,9 @@ class QueryByNameContainer extends Component {
 
 }
 
-function mapStateToProps(state) {
+function mapStateToProps(rootReducer) {
   return {
-    artists: state.artistsReducer.artists,
+    artists: rootReducer.artistsReducer.artists,
   }
 }
 
