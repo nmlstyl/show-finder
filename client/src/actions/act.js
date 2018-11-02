@@ -9,16 +9,9 @@ export function fetchByArtist(artist_name) {
       .then(response => response.json())
       .then(artist => {
                         dispatch({type: 'FETCH_ARTIST', payload: artist.resultsPage.results.artist[0].displayName})
-                        fetchShows(artist.resultsPage.results.artist[0].id)
-                      })
-    }
-}
-
-export function fetchShows(artist_id) {
-  return (dispatch) => {
-    dispatch({type: 'LOADING_SHOWS'})
-    return fetch(`https://api.songkick.com/api/3.0/artists/${artist_id}/calendar.json?apikey=${key}`)
-      .then(response => response.json())
-      .then(shows => dispatch({type: 'FETCH_ARTIST', payload: shows}) )
+                        fetch(`https://api.songkick.com/api/3.0/artists/${artist.resultsPage.results.artist[0].id}/calendar.json?apikey=${key}`)
+                          .then(response => response.json())
+                          .then(shows => dispatch({type: 'FETCH_SHOWS', payload: shows}) )
+                        })
     }
 }
