@@ -4,7 +4,7 @@ const Artist = (props) => {
 
     const onTour = () => {
       if (props.touringUntil !== null){
-          return  <p>On Tour Until: {props.touringUntil} <button>Find Shows</button></p>
+        return  <p>On Tour Until: {props.touringUntil} <button>Find Shows</button></p>
       } else {
         return <p>No Shows Found</p>
       }

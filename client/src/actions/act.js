@@ -13,16 +13,13 @@ export function fetchByArtist(artist_name) {
                         dispatch({type: 'FETCH_ARTISTS', payload: results})
                       })
     }
-
-
-
 }
-//
-// export function getShows(id){
-//   return (dispatch) => {
-//     dispatch({type: 'LOADING'})
-//     fetch(`https://api.songkick.com/api/3.0/artists/${id}/calendar.json?apikey=${key}`)
-//       .then(response => response.json())
-//       .then(shows => dispatch({type: 'FETCH_SHOWS', payload: shows.resultsPage.results.event}) )
-//   }
-// }
+
+export function getShows(id){
+  return (dispatch) => {
+    dispatch({type: 'LOADING'})
+    fetch(`https://api.songkick.com/api/3.0/artists/${id}/calendar.json?apikey=${key}`)
+      .then(response => response.json())
+      .then(shows => dispatch({type: 'FETCH_SHOWS', payload: shows.resultsPage.results.event}) )
+  }
+}
