@@ -1,5 +1,5 @@
 import React from 'react'
-import SongkickArtist from './artist'
+import SongkickArtist from './songkick_artist'
 
 const SongkickArtists = (props) => {
 

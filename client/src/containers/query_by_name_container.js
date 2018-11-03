@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ArtistForm from '../components/artists/artist_form'
-import SongkickArtists from '../components/artists/artists'
+import SongkickArtists from '../components/artists/songkick_artists'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
