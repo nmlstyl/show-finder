@@ -15,7 +15,7 @@ class QueryByNameContainer extends Component {
         Find Shows By:
         <br /><br />
         <ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } />
-        <Artists artists={ this.props.artists }/>
+        <Artists artists={ this.props.artists } getShows={ this.props.actions.getShows }/>
       </div>
     )
   }

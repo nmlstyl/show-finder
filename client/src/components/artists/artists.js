@@ -4,7 +4,7 @@ import Artist from './artist'
 const Artists = (props) => {
 
     function displayArtists(){
-      return props.artists.map(artist => <Artist name={ artist.name } touringUntil={ artist.touringUntil } id={ artist.id }/>)
+      return props.artists.map(artist => <Artist name={ artist.name } touringUntil={ artist.touringUntil } id={ artist.id } getShows={ props.getShows }/>)
     }
 
     return(

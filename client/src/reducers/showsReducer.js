@@ -4,6 +4,7 @@ export default function showsReducer(state = {shows: [], loading: false }, actio
       return Object.assign({}, state, {loading: true})
 
     case 'FETCH_SHOWS':
+      debugger
       const showsData = action.payload.map(show => show.displayName)
       return {loading: false, shows: showsData}
 

@@ -9,8 +9,11 @@ export function fetchByArtist(artist_name) {
     fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${key}&query=${artist_name}`)
       .then(response => response.json())
       .then(artists => {
-                        const results = artists.resultsPage.results.artist.map(artist => { return Object.assign({}, {id: artist.id, name: artist.displayName, touringUntil: artist.onTourUntil})})
-                        dispatch({type: 'FETCH_ARTISTS', payload: results})
+                        let obj = artists.resultsPage.results
+                        if (Object.keys(obj).length !== 0){
+                          const results = artists.resultsPage.results.artist.map(artist => { return Object.assign({}, {id: artist.id, name: artist.displayName, touringUntil: artist.onTourUntil})})
+                          dispatch({type: 'FETCH_ARTISTS', payload: results})
+                        }
                       })
     }
 }
