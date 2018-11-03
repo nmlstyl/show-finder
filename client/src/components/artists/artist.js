@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Artist = (props) => {
+const SongkickArtist = (props) => {
 
     const onTour = () => {
       if (props.touringUntil !== null){
@@ -18,4 +18,4 @@ const Artist = (props) => {
     )
 }
 
-export default Artist
+export default SongkickArtist

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ArtistForm from '../components/artists/artist_form'
-import Artists from '../components/artists/artists'
+import SongkickArtists from '../components/artists/artists'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -15,7 +15,7 @@ class QueryByNameContainer extends Component {
         Find Shows By:
         <br /><br />
         <ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } />
-        <Artists artists={ this.props.artists } getShows={ this.props.actions.getShows }/>
+        <SongkickArtists songkickArtists={ this.props.songkickArtists } getShows={ this.props.actions.getShows }/>
       </div>
     )
   }
@@ -24,7 +24,7 @@ class QueryByNameContainer extends Component {
 
 function mapStateToProps(rootReducer) {
   return {
-    artists: rootReducer.artistsReducer.artists,
+    songkickArtists: rootReducer.songkickArtistsReducer.artists,
   }
 }
 

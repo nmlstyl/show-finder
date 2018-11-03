@@ -1,10 +1,10 @@
 import React from 'react'
-import Artist from './artist'
+import SongkickArtist from './artist'
 
-const Artists = (props) => {
+const SongkickArtists = (props) => {
 
     function displayArtists(){
-      return props.artists.map(artist => <Artist name={ artist.name } touringUntil={ artist.touringUntil } id={ artist.id } getShows={ props.getShows }/>)
+      return props.songkickArtists.map(artist => <SongkickArtist name={ artist.name } touringUntil={ artist.touringUntil } id={ artist.id } getShows={ props.getShows }/>)
     }
 
     return(
@@ -14,4 +14,4 @@ const Artists = (props) => {
     )
 }
 
-export default Artists
+export default SongkickArtists

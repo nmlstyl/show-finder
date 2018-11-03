@@ -1,4 +1,4 @@
-export default function showsReducer(state = {shows: [], loading: false }, action) {
+export default function songkickShowsReducer(state = {shows: [], loading: false }, action) {
   switch (action.type) {
     case 'LOADING_SHOWS':
       return Object.assign({}, state, {loading: true})

@@ -1,4 +1,4 @@
-export default function artistsReducer(state = {artists: [], loading: false }, action) {
+export default function songkickArtistsReducer(state = {artists: [], loading: false }, action) {
   switch (action.type) {
     case 'LOADING_ARTISTS':
       return Object.assign({}, state, {loading: true})
