@@ -9,6 +9,7 @@ const SongkickArtists = (props) => {
 
     return(
       <div id="artists">
+        <h2>Songkick</h2>
         { displayArtists() }
       </div>
     )

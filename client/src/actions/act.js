@@ -19,11 +19,14 @@ export function fetchByArtist(artist_name) {
                         }
                       })
 
+    dispatch({type: 'LOADING_BANDSINTOWN_ARTISTS'})
+
     // grab bandsintown artists
     fetch(`https://rest.bandsintown.com/artists/${artist_name}?app_id=${bandsintown_app_id}`)
       .then(response => response.json())
       .then(artist => {
-        debugger
+        const result = Object.assign({}, {id: artist.id, name: artist.name, eventCount: artist.upcoming_event_count})
+        dispatch({type: 'FETCH_BANDSINTOWN_ARTISTS', payload: result})
       })
 
     } // end dispatch

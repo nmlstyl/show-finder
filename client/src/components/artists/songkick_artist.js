@@ -12,7 +12,7 @@ const SongkickArtist = (props) => {
 
     return(
       <div class="artist">
-        <h2>{ props.name }</h2>
+        <h3>{ props.name }</h3>
         { onTour() }
       </div>
     )
