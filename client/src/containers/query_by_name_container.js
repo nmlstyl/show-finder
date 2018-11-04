@@ -24,7 +24,7 @@ class QueryByNameContainer extends Component {
 
 function mapStateToProps(rootReducer) {
   return {
-    songkickArtists: rootReducer.songkickArtistsReducer.artists,
+    songkickArtists: rootReducer.songkickArtistsReducer.artists
   }
 }
 

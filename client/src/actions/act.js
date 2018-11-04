@@ -6,7 +6,7 @@ const bandsintown_app_id = process.env.REACT_APP_BANDSINTOWN_APP_ID
 export function fetchByArtist(artist_name) {
   return (dispatch) => {
 
-    dispatch({type: 'LOADING_ARTISTS'})
+    dispatch({type: 'LOADING_SONGKICK_ARTISTS'})
 
     // grab songkick artists
     fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${songkick_key}&query=${artist_name}`)
@@ -15,7 +15,7 @@ export function fetchByArtist(artist_name) {
                         let obj = artists.resultsPage.results
                         if (Object.keys(obj).length !== 0){
                           const results = artists.resultsPage.results.artist.map(artist => { return Object.assign({}, {id: artist.id, name: artist.displayName, touringUntil: artist.onTourUntil})})
-                          dispatch({type: 'FETCH_ARTISTS', payload: results})
+                          dispatch({type: 'FETCH_SONGKICK_ARTISTS', payload: results})
                         }
                       })
 
@@ -26,14 +26,14 @@ export function fetchByArtist(artist_name) {
         debugger
       })
 
-    }
-}
+    } // end dispatch
+} // end fetchByArtist
 
 export function getShows(id){
   return (dispatch) => {
-    dispatch({type: 'LOADING_SHOWS'})
+    dispatch({type: 'LOADING_SONGKICK_SHOWS'})
     fetch(`https://api.songkick.com/api/3.0/artists/${id}/calendar.json?apikey=${songkick_key}`)
       .then(response => response.json())
-      .then(shows => dispatch({type: 'FETCH_SHOWS', payload: shows.resultsPage.results.event}) )
+      .then(shows => dispatch({type: 'FETCH_SONGKICK_SHOWS', payload: shows.resultsPage.results.event}) )
   }
 }
