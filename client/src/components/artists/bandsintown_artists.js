@@ -4,7 +4,7 @@ import BandsintownArtist from './bandsintown_artist'
 const BandsintownArtists = (props) => {
 
     function displayBandsintownArtists(){
-      return props.bandsintownArtists.map(artist => <BandsintownArtist name={ artist.name } />)
+      return props.bandsintownArtists.map((artist, idx) => <BandsintownArtist name={ artist.name } key={ idx }/>)
     }
 
     return(
