@@ -32,7 +32,7 @@ export function fetchByArtist(artist_name) {
     } // end dispatch
 } // end fetchByArtist
 
-export function getShows(id){
+export function getSongkickShows(id){
   return (dispatch) => {
     dispatch({type: 'LOADING_SONGKICK_SHOWS'})
     fetch(`https://api.songkick.com/api/3.0/artists/${id}/calendar.json?apikey=${songkick_key}`)

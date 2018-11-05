@@ -6,6 +6,7 @@ const BandsintownArtist = (props) => {
     return(
       <div className="artist">
         <h3>{ props.name }</h3>
+        <p>Upcoming Events:  { props.eventCount }</p>
       </div>
     )
 }

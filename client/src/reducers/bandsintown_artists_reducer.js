@@ -4,6 +4,7 @@ export default function bandsintownArtistsReducer(state = {artists: [], loading:
       return Object.assign({}, state, {loading: true})
 
     case 'FETCH_BANDSINTOWN_ARTISTS':
+      debugger
       return {loading: false, artists: [action.payload]}
 
     default:

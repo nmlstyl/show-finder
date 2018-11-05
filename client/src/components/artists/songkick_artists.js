@@ -4,7 +4,12 @@ import SongkickArtist from './songkick_artist'
 const SongkickArtists = (props) => {
 
     function displayArtists(){
-      return props.songkickArtists.map((artist, idx) => <SongkickArtist name={ artist.name } touringUntil={ artist.touringUntil } id={ artist.id } getShows={ props.getShows } key={ idx }/>)
+      return props.songkickArtists.map((artist, idx) =>
+        <SongkickArtist name={ artist.name }
+                        touringUntil={ artist.touringUntil }
+                        id={ artist.id }
+                        getSongkickShows={ props.getSongkickShows }
+                        key={ idx }/>)
     }
 
     return(
