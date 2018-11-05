@@ -5,7 +5,7 @@ const BandsintownArtist = (props) => {
 
     return(
       <div className="artist">
-        <h2>{ props.name }</h2>
+        <h3>{ props.name }</h3>
       </div>
     )
 }

@@ -13,11 +13,13 @@ class QueryByNameContainer extends Component {
 
     return (
       <div>
-        Find Shows By:
-        <br /><br />
-        <ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } />
-        <SongkickArtists songkickArtists={ this.props.songkickArtists } getShows={ this.props.actions.getShows }/>
-        <BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }/>
+        <br />
+        <div class="row"><ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } /></div>
+
+        <div class="row">
+          <div class="col-md-6"><SongkickArtists songkickArtists={ this.props.songkickArtists } getShows={ this.props.actions.getShows }/></div>
+          <div class="col-md-6"><BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }/></div>
+        </div>
       </div>
     )
   }
