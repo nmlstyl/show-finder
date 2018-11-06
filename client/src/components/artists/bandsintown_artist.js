@@ -4,7 +4,10 @@ const BandsintownArtist = (props) => {
 
     const upcomingEvents = () => {
       if (props.eventCount !== undefined && props.eventCount !== 0){
-        return  <p>Upcoming Events: { props.eventCount } &nbsp; <button className="btn btn-default" onClick={ () => props.getBandsintownShows(props.name) }>Find Shows</button></p>
+        return  <p>Upcoming Events: { props.eventCount } &nbsp;
+                <button className="btn btn-default"
+                        onClick={ () => props.getBandsintownShows(props.name) }>Find Shows</button>
+                </p>
       } else {
         return <p>No Shows Found</p>
       }

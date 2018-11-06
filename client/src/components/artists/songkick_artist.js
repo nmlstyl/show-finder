@@ -4,7 +4,10 @@ const SongkickArtist = (props) => {
 
     const onTour = () => {
       if (props.touringUntil !== null){
-        return  <p>On Tour Until: {props.touringUntil} &nbsp; <button className="btn btn-default" onClick={ () => props.getSongkickShows(props.id) }>Find Shows</button></p>
+        return  <p>On Tour Until: {props.touringUntil} &nbsp;
+                <button className="btn btn-default"
+                        onClick={ () => props.getSongkickShows(props.id) }>Find Shows</button>
+                </p>
       } else {
         return <p>No Shows Found</p>
       }
