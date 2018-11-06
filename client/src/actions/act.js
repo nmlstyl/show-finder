@@ -40,3 +40,12 @@ export function getSongkickShows(id){
       .then(shows => dispatch({type: 'FETCH_SONGKICK_SHOWS', payload: shows.resultsPage.results.event}) )
   }
 }
+
+export function getBandsintownShows(name){
+  return (dispatch) => {
+    dispatch({type: 'LOADING_BANDSINTOWN_SHOWS'})
+    fetch(`https://rest.bandsintown.com/artists/${name}/events?app_id=${bandsintown_app_id}`)
+      .then(response => response.json())
+      .then(shows => dispatch({type: 'FETCH_BANDSINTOWN_SHOWS', payload: shows}))
+  }
+}

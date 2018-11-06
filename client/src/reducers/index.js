@@ -2,9 +2,12 @@ import { combineReducers } from 'redux'
 import songkickArtistsReducer from './songkick_artists_reducer'
 import songkickShowsReducer from './songkick_shows_reducer'
 import bandsintownArtistsReducer from './bandsintown_artists_reducer'
+import bandsintownShowsReducer from './bandsintown_shows_reducer'
 
 const rootReducer = combineReducers({songkickArtistsReducer: songkickArtistsReducer,
                                      songkickShowsReducer: songkickShowsReducer,
-                                     bandsintownArtistsReducer: bandsintownArtistsReducer})
+                                     bandsintownArtistsReducer: bandsintownArtistsReducer,
+                                     bandsintownShowsReducer: bandsintownShowsReducer
+                                   })
 
 export default rootReducer

@@ -3,8 +3,8 @@ import React from 'react'
 const BandsintownArtist = (props) => {
 
     const upcomingEvents = () => {
-      if (props.eventCount !== 0){
-        return  <p>Upcoming Events: { props.eventCount }</p>
+      if (props.eventCount !== undefined && props.eventCount !== 0){
+        return  <p>Upcoming Events: { props.eventCount } &nbsp; <button className="btn btn-default" onClick={ () => props.getBandsintownShows(props.name) }>Find Shows</button></p>
       } else {
         return <p>No Shows Found</p>
       }
@@ -19,11 +19,3 @@ const BandsintownArtist = (props) => {
 }
 
 export default BandsintownArtist
-
-// const onTour = () => {
-//   if (props.touringUntil !== null){
-//     return  <p>On Tour Until: {props.touringUntil} <button onClick={ () => props.getShows(props.id) }>Find Shows</button></p>
-//   } else {
-//     return <p>No Shows Found</p>
-//   }
-// }
