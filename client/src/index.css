@@ -6,3 +6,11 @@ body{
 .form-control{
   color: black;
 }
+
+h1{
+  font-size: 3.9em;
+}
+
+form{
+  margin-bottom: 30px;
+}
