@@ -12,9 +12,15 @@ const SongkickArtists = (props) => {
                         key={ idx }/>)
     }
 
+    function header(){
+      if (props.songkickArtists.length > 0){
+        return <h2>Songkick</h2>
+      }
+    }
+
     return(
       <div id="artists">
-        <h2>Songkick</h2>
+        { header() }
         { displayArtists() }
       </div>
     )
