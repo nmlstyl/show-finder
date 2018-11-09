@@ -4,11 +4,7 @@ const Navbar = () => {
     return(
         <header><h1><strong><em>S H O W &nbsp; F I N D E R</em></strong></h1>
           <nav className="navbar">
-            <a href="/"><button type="button" className="btn btn-default navbar-btn">Home</button></a>
-
-            &nbsp;&nbsp;&nbsp;&nbsp;
-
-            <a href="/"><button type="button" className="btn btn-default navbar-btn">Login or Signup</button></a>
+            <a href="/signuplogin"><button type="button" className="btn btn-default navbar-btn">Login or Signup</button></a>
 
             &nbsp;&nbsp;&nbsp;&nbsp;
 
