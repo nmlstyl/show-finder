@@ -1,12 +1,13 @@
 import React from 'react'
 
-const Show = (props) => {
+const SongkickShow = (props) => {
 
     return(
       <div class='show'>
+        { props.name }
       </div>
     )
 
 }
 
-export default Show
+export default SongkickShow

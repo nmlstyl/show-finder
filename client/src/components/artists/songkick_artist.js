@@ -6,11 +6,11 @@ const SongkickArtist = (props) => {
 
     const onTour = () => {
       if (props.touringUntil !== null){
-        return  <p>On Tour Until: {props.touringUntil} &nbsp;
+        return  <div className='OnTour'>On Tour Until: {props.touringUntil} &nbsp;
                 <button className="btn btn-default"
                         onClick={ () => props.getSongkickShows(props.id) }>Find Shows</button>
-                      <SongkickShows songkickShows={props.songkickShows}/>
-                </p>
+                      <SongkickShows songkickShows={ props.songkickShows }/>
+                </div>
       } else {
         return <p>No Shows Found</p>
       }
