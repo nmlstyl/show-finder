@@ -4,8 +4,13 @@ export default function songkickShowsReducer(state = {shows: [], loading: false 
       return Object.assign({}, state, {loading: true})
 
     case 'FETCH_SONGKICK_SHOWS':
-      debugger
-      const showsData = action.payload.map(show => show.displayName)
+      const showsData = action.payload.map(show => Object.assign({}, {name: show.displayName,
+                                                                      location: show.location.city,
+                                                                      venue: show.venue.displayName,
+                                                                      date: show.start.date,
+                                                                      time: show.start.time
+                                                                    })
+                                          )
       return {loading: false, shows: showsData}
 
     default:
