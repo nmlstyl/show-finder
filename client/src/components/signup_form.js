@@ -11,15 +11,15 @@ class SignupForm extends Component {
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log(this.state)
   }
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-    // this.props.fetchByArtist(this.state.bandText)
-    // this.setState({
-    //   [event.target.name]: ''
-    // })
+    this.props.signupThroughApi(this.state.email, this.state.password)
+    this.setState({
+      email: '',
+      password: ''
+    })
   }
 
   render() {

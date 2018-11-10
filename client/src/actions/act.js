@@ -49,3 +49,21 @@ export function getBandsintownShows(name){
       .then(shows => dispatch({type: 'FETCH_BANDSINTOWN_SHOWS', payload: shows}))
   }
 }
+
+export function signupThroughApi(email, password){
+  return dispatch => {
+    fetch('http://api.localhost:3001/users', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+             body: JSON.stringify({
+                email: email,
+                password: password
+            })
+        })
+        .then(results => {debugger})
+        .then(data => {debugger})
+  }
+}
