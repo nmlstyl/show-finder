@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  wrap_parameters :user
 
   def index
     @users = User.all
@@ -15,17 +16,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
-    # respond_to do |format|
-    #   format.js { @user = User.new(params[:user])
-    #               @user.password = params[:password]
-    #               @user.save!}
-    # end
+    @user = User.new(user_params)
+    @user.save!
   end
 
   private
 
-  def cat_params
-     params.require(:user).permit(:email, :password)
+  def user_params
+     params.permit(:email, :password)
   end
 end

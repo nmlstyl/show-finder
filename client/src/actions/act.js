@@ -52,14 +52,10 @@ export function getBandsintownShows(name){
 
 export function signupThroughApi(email, password){
   return dispatch => {
-    fetch(`http://api.localhost:3001/users`, {
-           method: 'POST',
-           body: JSON.stringify({
-              email: email,
-              password: password
-          })
+    fetch(`http://api.localhost:3001/users?email=${email}&password=${password}`, {
+           method: 'POST'
         })
-        .then(results => {debugger})
-        .then(data => {debugger})
+        .then(results => results.json())
+        .then(data => data)
   }
 }
