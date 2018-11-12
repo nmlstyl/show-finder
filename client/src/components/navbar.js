@@ -3,9 +3,13 @@ import React from 'react'
 const Navbar = (props) => {
 
     function endSession(){
-      debugger
       props.cookies.remove('name', 'Ross', { path: '/' });
-      // name, value, path
+    }
+
+    function generateLogoutButton(){
+        if (Object.keys(props.cookies.cookies).length !== 0){
+          return <button type="button" onClick={ () => endSession() } className="btn btn-default navbar-btn">Logout</button>
+        }
     }
 
     return(
@@ -27,7 +31,7 @@ const Navbar = (props) => {
 
             &nbsp;&nbsp;&nbsp;&nbsp;
 
-            <button type="button" onClick={ () => endSession() } className="btn btn-default navbar-btn">Logout</button>
+            { generateLogoutButton() }
           </nav>
         </header>
     )
