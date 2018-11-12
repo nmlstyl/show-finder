@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar />
+        <Navbar cookies={this.props.cookies} />
         <Route path="/signup" render={ () => (<SignupContainer cookies={this.props.cookies}/>) } />
         <Route path="/login" render={ () => (<LoginContainer cookies={this.props.cookies}/>) } />
         <Route path="/artistsearch" component={ QueryByNameContainer } />

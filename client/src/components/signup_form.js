@@ -9,6 +9,9 @@ class SignupForm extends Component {
       email: '',
       password: ''
     }
+    // should be called when the user is created
+    this.props.cookies.set('name', 'Ross', { path: '/'})
+    // name, value, path
   }
 
   handleChange = (event) => {
@@ -19,7 +22,6 @@ class SignupForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-    debugger
     this.props.signupThroughApi(this.state.email, this.state.password)
     this.setState({
       email: '',
