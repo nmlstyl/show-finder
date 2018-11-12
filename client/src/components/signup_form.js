@@ -2,9 +2,13 @@ import React, { Component } from 'react';
 
 class SignupForm extends Component {
 
-  state = {
-    email: '',
-    password: ''
+  constructor(props) {
+    super(props);
+    this.myPassword = React.createRef()
+    this.state = {
+      email: '',
+      password: ''
+    }
   }
 
   handleChange = (event) => {
@@ -20,6 +24,14 @@ class SignupForm extends Component {
       email: '',
       password: ''
     })
+  }
+
+  showHidePw = () => {
+      if (this.myPassword.current.type === "password") {
+          this.myPassword.current.type = "text";
+      } else {
+          this.myPassword.current.type = "password";
+      }
   }
 
   render() {
@@ -40,10 +52,13 @@ class SignupForm extends Component {
 
           <div className="form-group">
             <label htmlFor="password">Password:</label>
-            <input type='text'
+            <input type='password'
+                   ref={this.myPassword}
                    className="form-control"
-                   id="password" name='password'
-                   onChange={ event => this.handleChange(event) } value={ this.state.password } />
+                   id="password"
+                   name='password'
+                   onChange={ event => this.handleChange(event) } value={ this.state.password } /><br></br>
+            <input type="checkbox" onClick={ () => this.showHidePw() }/> Show Password
           </div>
 
           <button type="submit"

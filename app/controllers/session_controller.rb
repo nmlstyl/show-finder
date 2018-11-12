@@ -11,8 +11,8 @@ class SessionController < ApplicationController
     reset_session
   end
 
-  def is_logged_in?
-    if session[:id] = current_user
+  def is_logged_in
+    if session[:id]
       render json: {loggedIn: true}
     else
       render json: {loggedIn: false}

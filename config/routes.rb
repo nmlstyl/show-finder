@@ -5,4 +5,5 @@ Rails.application.routes.draw do
 
   post '/login', to: 'session#login'
   post '/logout', to: 'session#logout'
+  post '/isloggedin', to 'session#is_logged_in'
 end
