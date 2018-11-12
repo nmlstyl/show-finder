@@ -2,7 +2,7 @@ class SessionController < ApplicationController
 
   def login
     @user = User.find_by_email(params[:email])
-    if @user.password == params[:password]
+    if @user.authenticate(params[:password])
       give_token(@user.id)
     end
   end
