@@ -15,7 +15,7 @@ class App extends Component {
       <div className="App">
 
         <Navbar />
-        <Route path="/artistsearch" render={ () => (<QueryByNameContainer cookies={this.props.cookies}/>) } />
+        <Route path="/artistsearch" component={ QueryByNameContainer } />
         <Route path="/signup" render={ () => (<SignupContainer cookies={this.props.cookies}/>) } />
         <Route path="/login" render={ () => (<LoginContainer cookies={this.props.cookies}/>) } />
       </div>

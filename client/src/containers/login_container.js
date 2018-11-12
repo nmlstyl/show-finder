@@ -8,7 +8,7 @@ class LoginContainer extends Component {
     return (
       <div>
         <br />
-        <LoginForm />
+        <div className="row"><LoginForm /></div>
       </div>
     )
   }
