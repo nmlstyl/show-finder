@@ -11,7 +11,7 @@ class SignupContainer extends Component {
     return (
       <div>
         <br />
-        <div className="row"><SignupForm signupThroughApi={ this.props.actions.signupThroughApi }/></div>
+        <div className="row"><SignupForm signupThroughApi={ this.props.actions.signupThroughApi } cookies={ this.props.cookies }/></div>
       </div>
     )
   }
@@ -21,14 +21,3 @@ class SignupContainer extends Component {
 function mapDispatchToProps(dispatch) { return {actions: bindActionCreators(actions, dispatch)} }
 
 export default connect(null, mapDispatchToProps)(SignupContainer)
-
-// function mapStateToProps(rootReducer) {
-//   return {
-//     songkickArtists: rootReducer.songkickArtistsReducer.artists,
-//     bandsintownArtists: rootReducer.bandsintownArtistsReducer.artists
-//   }
-// }
-//
-// function mapDispatchToProps(dispatch) { return {actions: bindActionCreators(actions, dispatch)} }
-//
-// export default connect(mapStateToProps, mapDispatchToProps)(QueryByNameContainer)

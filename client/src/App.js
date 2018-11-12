@@ -13,11 +13,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-
         <Navbar />
-        <Route path="/artistsearch" component={ QueryByNameContainer } />
         <Route path="/signup" render={ () => (<SignupContainer cookies={this.props.cookies}/>) } />
         <Route path="/login" render={ () => (<LoginContainer cookies={this.props.cookies}/>) } />
+        <Route path="/artistsearch" component={ QueryByNameContainer } />
       </div>
     );
   }

@@ -19,6 +19,7 @@ class SignupForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
+    debugger
     this.props.signupThroughApi(this.state.email, this.state.password)
     this.setState({
       email: '',

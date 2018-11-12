@@ -18,7 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save!
-      redirect_to controller: 'session', action: 'login', email: @user.email, password: @user.password
+      render json: {userCreated: true}
+    else
+      render json: {userCreated: false}
     end
   end
 
