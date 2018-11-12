@@ -11,9 +11,17 @@ class SessionController < ApplicationController
     reset_session
   end
 
+  def is_logged_in?
+    if session[:id] = current_user
+      render json: {loggedIn: true}
+    else
+      render json: {loggedIn: false}
+    end
+  end
+
     private
 
     def give_token(id)
-      session[id] = (id)
+      session[:id] = id
     end
 end
