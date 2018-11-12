@@ -1,33 +1,44 @@
 import React, { Component } from 'react';
 
 class LoginForm extends Component {
-
-  state = {
-    email: '',
-    password: ''
+  constructor(props) {
+    super(props);
+    this.myPassword = React.createRef()
+    this.state = {
+      email: '',
+      password: ''
+    }
   }
 
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value
     })
-    console.log(this.state)
   }
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-    // this.props.fetchByArtist(this.state.bandText)
+    // this.props.signupThroughApi(this.state.email, this.state.password)
     // this.setState({
-    //   [event.target.name]: ''
+    //   email: '',
+    //   password: ''
     // })
+  }
+
+  showHidePw = () => {
+    if (this.myPassword.current.type === "password") {
+        this.myPassword.current.type = "text";
+    } else {
+        this.myPassword.current.type = "password";
+    }
   }
 
   render() {
     return (
       <div className="col-md-4">
-      <h2>LOGIN</h2>
+      <h2>SIGNUP</h2>
 
-        <form name='login'
+        <form name='signup'
               onSubmit={ event => this.handleOnSubmit(event) }>
 
           <div className="form-group">
@@ -40,10 +51,13 @@ class LoginForm extends Component {
 
           <div className="form-group">
             <label htmlFor="password">Password:</label>
-            <input type='text'
+            <input type='password'
+                   ref={this.myPassword}
                    className="form-control"
-                   id="password" name='password'
-                   onChange={ event => this.handleChange(event) } value={ this.state.password } />
+                   id="password"
+                   name='password'
+                   onChange={ event => this.handleChange(event) } value={ this.state.password } /><br></br>
+            <input type="checkbox" onClick={ () => this.showHidePw() }/> Show Password
           </div>
 
           <button type="submit"

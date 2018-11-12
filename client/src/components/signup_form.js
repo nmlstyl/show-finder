@@ -27,11 +27,11 @@ class SignupForm extends Component {
   }
 
   showHidePw = () => {
-      if (this.myPassword.current.type === "password") {
-          this.myPassword.current.type = "text";
-      } else {
-          this.myPassword.current.type = "password";
-      }
+    if (this.myPassword.current.type === "password") {
+        this.myPassword.current.type = "text";
+    } else {
+        this.myPassword.current.type = "password";
+    }
   }
 
   render() {
