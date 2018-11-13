@@ -16,7 +16,7 @@ ReactDOM.render(
 <CookiesProvider>
   <Provider store={store} >
     <Router>
-      <Route path="/" component={App} />
+      <Route path="/" render={ () => <App />} />
     </Router>
   </Provider>
 </CookiesProvider>, document.getElementById('root')
