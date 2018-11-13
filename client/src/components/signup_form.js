@@ -19,12 +19,7 @@ class SignupForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-    this.props.signupThroughApi(this.state.email, this.state.password)
-
-    // should be called when the user is created
-    // this.props.accessCookies.set('id', USER ID, { path: '/'})
-    // name, value, path
-
+    // this.props.signupThroughApi(this.state.email, this.state.password)
     this.setState({
       email: '',
       password: ''
