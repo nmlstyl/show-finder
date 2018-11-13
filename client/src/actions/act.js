@@ -66,6 +66,8 @@ export function loginThroughApi(email, password){
     dispatch({type: 'LOADING_USERS'})
     fetch(`http://api.localhost:3001/login?email=${email}&password=${password}`)
         .then(response => response.json())
-        .then(user => dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {email: user.email, id: user.id }) }) )
+        .then(user => {
+          dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {userFound: user.userFound, email: user.email, id: user.id }) })
+        })
   }
 }
