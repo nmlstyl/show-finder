@@ -3,11 +3,11 @@ import React from 'react'
 const Navbar = (props) => {
 
     function endSession(){
-      props.cookies.remove('name', 'Ross', { path: '/' });
+      props.cookieAccess.remove('name', 'Ross', { path: '/' });
     }
 
     function generateLogoutButton(){
-        if (Object.keys(props.cookies.cookies).length !== 0){
+        if (Object.keys(props.cookieAccess.cookies).length !== 0){
           return <button type="button" onClick={ () => endSession() } className="btn btn-default navbar-btn">Logout</button>
         }
     }

@@ -11,7 +11,7 @@ class SignupContainer extends Component {
     return (
       <div>
         <br />
-        <div className="row"><SignupForm signupThroughApi={ this.props.actions.signupThroughApi } cookies={ this.props.cookies }/></div>
+        <div className="row"><SignupForm signupThroughApi={ this.props.actions.signupThroughApi } cookieAccess={ this.props.cookieAccess }/></div>
       </div>
     )
   }

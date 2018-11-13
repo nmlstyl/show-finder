@@ -13,9 +13,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar cookies={this.props.cookies} />
-        <Route path="/signup" render={ () => (<SignupContainer cookies={this.props.cookies}/>) } />
-        <Route path="/login" render={ () => (<LoginContainer cookies={this.props.cookies}/>) } />
+        <Navbar cookieAccess={this.props.cookies} />
+        <Route path="/signup" render={ () => (<SignupContainer cookieAccess={this.props.cookies}/>) } />
+        <Route path="/login" render={ () => (<LoginContainer cookieAccess={this.props.cookies}/>) } />
         <Route path="/artistsearch" component={ QueryByNameContainer } />
       </div>
     );

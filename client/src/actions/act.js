@@ -51,15 +51,13 @@ export function getBandsintownShows(name){
 }
 
 export function signupThroughApi(email, password){
-  const usercreated = false
   return dispatch => {
+    dispatch({type: 'LOADING_USERS'})
     fetch(`http://api.localhost:3001/users?email=${email}&password=${password}`, {
            method: 'POST'
         })
         .then(results => results.json())
-        .then(data => { if (data){
-            usercreated= true
-        }})
+        .then(user => dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {email: user.email, id: user.id }) }) )
+
   }
-  return usercreated
 }
