@@ -9,10 +9,8 @@ class SignupContainer extends Component {
 
   success = () => {
     if (this.props.users.length !== 0){
-      // should be called when the user is created
       this.props.cookieAccess.set('id', this.props.users.id, { path: '/'})
-      // name, value, path
-      return <div className="col-md-4">Sign Up Success!</div>
+      return <div className="col-md-12">Sign Up Success!</div>
     }
   }
 

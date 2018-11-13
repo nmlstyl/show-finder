@@ -39,7 +39,7 @@ const Navbar = (props) => {
     }
 
     return(
-        <header><h1><strong><em>S H O W &nbsp; F I N D E R</em></strong></h1>
+        <header><h1><strong><em>S H O W &nbsp; F E Y E N D E R</em></strong></h1>
           <nav className="navbar">
             <a href="/"><button type="button" className="btn btn-default navbar-btn"><span className="glyphicon glyphicon-search" aria-hidden="true"></span> &nbsp; Search By Artist</button></a>
 
