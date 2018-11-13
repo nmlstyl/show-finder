@@ -4,7 +4,11 @@ import BandsintownShow from './bandsintown_show'
 const BandsintownShows = (props) => {
 
   function renderShows(){
-    return props.songkickShows.map((show, idx) =>  <li><BandsintownShow /></li>)
+    return props.bandsintownShows.map((show, idx) =>  <li><BandsintownShow name={ show.name }
+                                                                           venue={ show.venue }
+                                                                           location={ show.location }
+                                                                           date={ show.date }
+                                                                           time={ show.time }/></li>)
   }
 
     return(
