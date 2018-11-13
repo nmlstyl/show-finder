@@ -1,4 +1,7 @@
 Rails.application.configure do
+
+  config.api_key = ENV['API_KEY']
+  
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -36,6 +39,8 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
+
+
 
 
   # Raises error for missing translations

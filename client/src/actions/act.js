@@ -56,7 +56,7 @@ export function signupThroughApi(email, password){
     fetch(`http://api.localhost:3001/users?email=${email}&password=${password}`, {
            method: 'POST'
         })
-        .then(results => results.json())
+        .then(response => response.json())
         .then(user => dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {email: user.email, id: user.id }) }) )
 
   }

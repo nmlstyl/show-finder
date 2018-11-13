@@ -5,7 +5,6 @@ import SignupContainer from './containers/signup_container'
 import LoginContainer from './containers/login_container'
 import Navbar from './components/navbar'
 
-
 import { withCookies } from 'react-cookie';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
