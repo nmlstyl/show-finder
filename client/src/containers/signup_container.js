@@ -8,9 +8,12 @@ import * as actions from '../actions/act'
 class SignupContainer extends Component {
 
   success = () => {
-    if (this.props.users.length !== 0){
+    if (this.props.users.userCreated === true){
       this.props.cookieAccess.set('id', this.props.users.id, { path: '/'})
-      return <div className="col-md-12">Sign Up Success!</div>
+      return <div className="col-md-12">Signup Success!</div>
+    }
+    if (this.props.users.userCreated === false){
+      return <div className="col-md-12">Signup Problems... Try Again?</div>
     }
   }
 

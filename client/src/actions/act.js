@@ -57,7 +57,7 @@ export function signupThroughApi(email, password){
            method: 'POST'
         })
         .then(response => response.json())
-        .then(user => dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {email: user.email, id: user.id }) }) )
+        .then(user => dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {userCreated: user.userCreated, email: user.email, id: user.id }) }) )
   }
 }
 
