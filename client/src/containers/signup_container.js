@@ -7,17 +7,33 @@ import * as actions from '../actions/act'
 
 class SignupContainer extends Component {
 
+  success = () => {
+    if (this.props.users.length !== 0){
+      // should be called when the user is created
+      this.props.cookieAccess.set('id', this.props.users.id, { path: '/'})
+      // name, value, path
+      return 'Sign Up Success!'
+    }
+  }
+
   render() {
     return (
       <div>
         <br />
-        <div className="row"><SignupForm signupThroughApi={ this.props.actions.signupThroughApi } cookieAccess={ this.props.cookieAccess }/></div>
+        { this.success() }
+        <div className="row"><SignupForm signupThroughApi={ this.props.actions.signupThroughApi } /></div>
       </div>
     )
   }
 
 }
 
+function mapStateToProps(rootReducer) {
+  return {
+    users: rootReducer.usersReducer.users
+  }
+}
+
 function mapDispatchToProps(dispatch) { return {actions: bindActionCreators(actions, dispatch)} }
 
-export default connect(null, mapDispatchToProps)(SignupContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(SignupContainer)
