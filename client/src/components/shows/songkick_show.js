@@ -3,7 +3,7 @@ import React from 'react'
 const SongkickShow = (props) => {
 
     return(
-      <div className='show'>
+      <div className='songkickShow'>
         { props.name }<br></br>
         { props.location }<br></br>
         { props.venue }<br></br>

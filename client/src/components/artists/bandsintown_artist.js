@@ -1,4 +1,6 @@
 import React from 'react'
+import BandsintownShows from '../shows/bandsintown_shows'
+import { connect } from 'react-redux'
 
 const BandsintownArtist = (props) => {
 
@@ -7,6 +9,7 @@ const BandsintownArtist = (props) => {
         return  <p>Upcoming Events: { props.eventCount } &nbsp;
                 <button className="btn btn-default"
                         onClick={ () => props.getBandsintownShows(props.name) }>Find Shows</button>
+                <BandsintownShows bandsintownShows={ props.bandsintownShows }/>
                 </p>
       } else {
         return <p>No Shows Found</p>
@@ -21,4 +24,10 @@ const BandsintownArtist = (props) => {
     )
 }
 
-export default BandsintownArtist
+function mapStateToProps(rootReducer) {
+  return {
+    bandsintownShows: rootReducer.bandsintownShowsReducer.shows
+  }
+}
+
+export default connect(mapStateToProps, null)(BandsintownArtist)
