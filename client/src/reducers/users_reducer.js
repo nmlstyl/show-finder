@@ -4,7 +4,6 @@ export default function usersReducer(state = {users: [], loading: false }, actio
       return Object.assign({}, state, {loading: true})
 
     case 'FETCH_USERS':
-      debugger
       return {loading: false, users: action.payload}
 
     default:
