@@ -1,7 +1,6 @@
 import React from 'react'
 
 const BandsintownShow = (props) => {
-  debugger
     return(
       <div className='bandsintownShow'>
         { props.name }<br></br>

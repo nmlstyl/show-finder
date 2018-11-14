@@ -43,12 +43,12 @@ export function getSongkickShows(artist_id){
   }
 }
 
-export function getBandsintownShows(name){
+export function getBandsintownShows(name, artist_id){
   return (dispatch) => {
     dispatch({type: 'LOADING_BANDSINTOWN_SHOWS'})
     fetch(`https://rest.bandsintown.com/artists/${name}/events?app_id=${bandsintown_app_id}`)
       .then(response => response.json())
-      .then(shows => dispatch({type: 'FETCH_BANDSINTOWN_SHOWS', payload: shows}))
+      .then(shows => dispatch({type: 'FETCH_BANDSINTOWN_SHOWS', payload: {shows: shows, artist_id: artist_id}}))
   }
 }
 

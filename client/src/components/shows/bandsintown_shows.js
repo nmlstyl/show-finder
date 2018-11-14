@@ -8,7 +8,8 @@ const BandsintownShows = (props) => {
                                                                            venue={ show.venue }
                                                                            location={ show.location }
                                                                            date={ show.date }
-                                                                           time={ show.time }/></li>)
+                                                                           time={ show.time }
+                                                                           artist_id={ show.artist_id }/></li>)
   }
 
     return(

@@ -7,6 +7,7 @@ const BandsintownArtists = (props) => {
       return props.bandsintownArtists.map((artist, idx) =>
           <BandsintownArtist name={ artist.name }
                              eventCount={ artist.eventCount }
+                             id={ artist.id }
                              getBandsintownShows={ props.getBandsintownShows }
                              key={ idx }/>)
     }
