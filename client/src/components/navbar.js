@@ -40,7 +40,7 @@ const Navbar = (props) => {
 
 
     return(
-        <header><h1><strong><em>S H O W &nbsp; F eye N D E R</em></strong></h1>
+        <header><div class="row"><div className="col-md-4"><img class='img-responsive'src="/logo.png"></img></div></div>
           <nav className="navbar">
             <a href="/"><button type="button" className="btn btn-default navbar-btn"><span className="glyphicon glyphicon-search" aria-hidden="true"></span> &nbsp; Search By Artist</button></a>
 
