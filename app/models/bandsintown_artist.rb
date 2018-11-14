@@ -1,0 +1,2 @@
+class BandsintownArtist < ApplicationRecord
+end
