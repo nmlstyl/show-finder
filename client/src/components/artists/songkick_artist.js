@@ -18,7 +18,7 @@ const SongkickArtist = (props) => {
 
     return(
       <div className="artist">
-        <h3>{ props.name }</h3>
+        <h3>{ props.name } &nbsp; <button className='btn btn-default'>Save Artist</button></h3>
         { onTour() }
       </div>
     )

@@ -22,8 +22,16 @@ form{
 }
 
 .artist{
-  background-color: black;
-  padding: 4px;
+  background-color: #666;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
   margin-bottom: 20px;
-  border-radius: 12px;
+  border-radius: 8px;
+  color: black;
+}
+
+h3{
+  color: white;
+  padding-top: 12px;
 }
