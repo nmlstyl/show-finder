@@ -9,7 +9,7 @@ const BandsintownArtist = (props) => {
         return  <p>Upcoming Events: { props.eventCount } &nbsp;
                 <button className="btn btn-default"
                         onClick={ () => props.getBandsintownShows(props.name) }>Find Shows</button>
-                <BandsintownShows bandsintownShows={ props.bandsintownShows }/>
+                      <BandsintownShows bandsintownShows={ props.bandsintownShows } />
                 </p>
       } else {
         return <p>No Shows Found</p>

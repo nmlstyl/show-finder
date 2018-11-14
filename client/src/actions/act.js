@@ -32,12 +32,14 @@ export function fetchByArtist(artist_name) {
     } // end dispatch
 } // end fetchByArtist
 
-export function getSongkickShows(id){
+export function getSongkickShows(artist_id){
   return (dispatch) => {
     dispatch({type: 'LOADING_SONGKICK_SHOWS'})
-    fetch(`https://api.songkick.com/api/3.0/artists/${id}/calendar.json?apikey=${songkick_key}`)
+    fetch(`https://api.songkick.com/api/3.0/artists/${artist_id}/calendar.json?apikey=${songkick_key}`)
       .then(response => response.json())
-      .then(shows => dispatch({type: 'FETCH_SONGKICK_SHOWS', payload: shows.resultsPage.results.event}) )
+      .then(shows => {
+                        dispatch({type: 'FETCH_SONGKICK_SHOWS', payload: {shows: shows.resultsPage.results.event, artist_id: artist_id}})
+      })
   }
 }
 
