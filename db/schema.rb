@@ -18,15 +18,19 @@ ActiveRecord::Schema.define(version: 20181114212911) do
   create_table "bandsintown_artists", force: :cascade do |t|
     t.string "name"
     t.integer "bandsintown_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_bandsintown_artists_on_user_id"
   end
 
   create_table "songkick_artists", force: :cascade do |t|
     t.string "name"
     t.integer "songkick_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_songkick_artists_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
