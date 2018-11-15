@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
   get 'login', to: 'users#login'
+
+  resources :songkick_artists, only: [:create]
+
+  resources :bandsintown_artists, only: [:create]
 end
