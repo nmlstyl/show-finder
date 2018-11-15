@@ -1,6 +1,8 @@
 import React from 'react'
 import BandsintownShows from '../shows/bandsintown_shows'
 import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+import * as actions from '../../actions/act'
 
 const BandsintownArtist = (props) => {
 
@@ -44,4 +46,6 @@ function mapStateToProps(rootReducer) {
   }
 }
 
-export default connect(mapStateToProps, null)(BandsintownArtist)
+function mapDispatchToProps(dispatch) { return {actions: bindActionCreators(actions, dispatch)} }
+
+export default connect(mapStateToProps, mapDispatchToProps)(BandsintownArtist)

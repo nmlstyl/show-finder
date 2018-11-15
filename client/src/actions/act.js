@@ -80,7 +80,7 @@ export function createSongkickArtist(name, songkick_id, user_id){
     fetch(`http://api.localhost:3001/songkick_aritst?name=${name}&songkick_id=${songkick_id}&user_id=${user_id}`)
         .then(response => response.json())
         .then(artist => {
-          dispatch({type: 'FETCH_SAVIED_SONGKICK_ARTISTS', payload: artist })
+          dispatch({type: 'FETCH_SAVED_SONGKICK_ARTISTS', payload: artist })
         })
   }
 }
