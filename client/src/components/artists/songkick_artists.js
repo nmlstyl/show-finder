@@ -9,7 +9,8 @@ const SongkickArtists = (props) => {
                         touringUntil={ artist.touringUntil }
                         id={ artist.id }
                         getSongkickShows={ props.getSongkickShows }
-                        key={ idx }/>)
+                        key={ idx }
+                        cookieAccess={ props.cookieAccess }/>)
     }
 
     function header(){

@@ -7,7 +7,7 @@ const BandsintownArtist = (props) => {
     const upcomingEvents = () => {
       if (props.eventCount !== undefined && props.eventCount !== 0){
         return  <div className='upcomingEvents'>Upcoming Events: { props.eventCount } &nbsp;
-                <button className="btn btn-default"
+                <button className="btn-xs btn-default"
                         onClick={ () => props.getBandsintownShows(props.name, props.id) }>Find Shows</button>
                 <BandsintownShows bandsintownShows={ props.bandsintownShows } artistIdFromArtist={ props.id }/>
                 </div>
@@ -16,9 +16,23 @@ const BandsintownArtist = (props) => {
       }
     }
 
+    const generateSaveButton = () => {
+      if (isLoggedIn() === true){
+        return <button className='btn-xs btn-default'>Save Artist</button>
+      }
+    }
+
+    const isLoggedIn = () => {
+      if (Object.keys(props.cookieAccess.cookies).length !== 0){
+        return true
+      } else {
+        return false
+      }
+    }
+
     return(
       <div className="artist">
-        <h3>{ props.name }</h3>
+        <h3>{ props.name } &nbsp; { generateSaveButton() }</h3>
         { upcomingEvents() }
       </div>
     )

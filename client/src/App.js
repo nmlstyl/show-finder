@@ -17,7 +17,7 @@ class App extends Component {
           <Navbar cookieAccess={this.props.cookies} />
           <Route path="/signup" render={ () => (<SignupContainer cookieAccess={this.props.cookies}/>) } />
           <Route path="/login" render={ () => (<LoginContainer cookieAccess={this.props.cookies}/>) } />
-          <Route exact path="/" component={ QueryByNameContainer } />
+          <Route exact path="/" render={ () => (<QueryByNameContainer cookieAccess={this.props.cookies}/>) } />
         </div>
       </Router>
     );

@@ -9,7 +9,8 @@ const BandsintownArtists = (props) => {
                              eventCount={ artist.eventCount }
                              id={ artist.id }
                              getBandsintownShows={ props.getBandsintownShows }
-                             key={ idx }/>)
+                             key={ idx }
+                             cookieAccess={ props.cookieAccess }/>)
     }
 
     function header(){
