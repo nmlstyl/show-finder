@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SavedSongkickArtist = (props) => {
+const SavedArtist = (props) => {
 
     return(
       <div className="artist">
@@ -9,4 +9,4 @@ const SavedSongkickArtist = (props) => {
     )
 }
 
-export default SavedSongkickArtist
+export default SavedArtist

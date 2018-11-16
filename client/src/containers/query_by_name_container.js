@@ -28,6 +28,12 @@ class QueryByNameContainer extends Component {
     )
   }
 
+  componentDidMount(){
+    if (this.props.location !== undefined){
+      debugger
+    }
+  }
+
 }
 
 function mapStateToProps(rootReducer) {
