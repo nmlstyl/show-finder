@@ -1,3 +1,3 @@
 class SongkickArtistSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :name, :songkick_id
 end

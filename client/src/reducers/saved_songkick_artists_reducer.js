@@ -5,9 +5,10 @@ export default function savedSongkickArtistsReducer(state = {artists: [], loadin
 
     case 'FETCH_SAVED_SONGKICK_ARTISTS':
       debugger
-      return {artists: action.payload, loading: false}
+      const artists = action.payload
+      return { ...state, artists: [...state.artists, artists] }
 
-    case 'ADD_SAVED_SONGKICK_ARTISTS':
+    case 'ADD_SAVED_SONGKICK_ARTIST':
       debugger
       const info = action.payload
       const artist = Object.assign({}, {name: info.name, id: info.id, user_id: info.user_id, songkick_id: info.songkick_id})

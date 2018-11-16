@@ -6,6 +6,7 @@ class SongkickArtistsController < ApplicationController
   end
 
   def create
+    binding.pry
     @songkick_artist = SongkickArtist.new(name: params[:name], songkick_id: params[:songkick_id])
     @user = User.find(params[:user_id])
     @songkick_artist.user = @user
