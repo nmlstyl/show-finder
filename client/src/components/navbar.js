@@ -14,7 +14,7 @@ const Navbar = (props) => {
 
     function generateSavedBandsButton(){
       if (isLoggedIn()){
-        return <a href="/"><button type="button" className="btn btn-default navbar-btn"><span className="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> &nbsp; My Saved Bands</button></a>
+        return <a href="/savedbands"><button type="button" className="btn btn-default navbar-btn"><span className="glyphicon glyphicon-heart-empty" aria-hidden="true"></span> &nbsp; My Saved Bands</button></a>
       }
     }
 
