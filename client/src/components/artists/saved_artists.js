@@ -1,15 +1,17 @@
 import React from 'react'
-import SavedArtist from './saved_artist'
 
 const SavedArtists = (props) => {
 
     function displayArtists(){
-      return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name } key={ idx }/>)
+      return props.savedArtists.map((artist, idx) => <li id="savedArtist"><button className='btn' onClick={ () => props.fetchByArtist(artist.name) }>{ artist.name }</button></li>)
     }
+    //
 
     return(
       <div className="col-lg-12" id="savedartists">
-        { displayArtists() }
+        <ul id="savedArtists">
+          { displayArtists() }
+        </ul>
       </div>
     )
 }

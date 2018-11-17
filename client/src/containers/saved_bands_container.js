@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SavedArtists from '../components/artists/saved_artists'
+import SongkickArtists from '../components/artists/songkick_artists'
+import BandsintownArtists from '../components/artists/bandsintown_artists'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -13,10 +15,18 @@ class SavedBandsContainer extends Component {
 
   render() {
     return (
-      <div id='savedbands' class="row">
-        <div className="col"><h2> Artists</h2>
-          <SavedArtists savedArtists={ this.props.savedArtists }/>
-        </div>
+      <div>
+        <h2> Artists</h2>
+          <div className="row">
+            <div className="col-sm-6"><SongkickArtists songkickArtists={ this.props.songkickArtists }
+                                                       getSongkickShows={ this.props.actions.getSongkickShows }
+                                                       cookieAccess={ this.props.cookieAccess }/></div>
+            <div className="col-sm-6"><BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }
+                                                          getBandsintownShows={ this.props.actions.getBandsintownShows }
+                                                          cookieAccess={ this.props.cookieAccess }/></div>
+          </div>
+
+          <div className='row'><SavedArtists savedArtists={ this.props.savedArtists } fetchByArtist={ this.props.actions.fetchByArtist }/></div>
       </div>
     )
   }
@@ -24,7 +34,9 @@ class SavedBandsContainer extends Component {
 
 function mapStateToProps(rootReducer) {
   return {
-    savedArtists: rootReducer.savedArtistsReducer.artists
+    savedArtists: rootReducer.savedArtistsReducer.artists,
+    songkickArtists: rootReducer.songkickArtistsReducer.artists,
+    bandsintownArtists: rootReducer.bandsintownArtistsReducer.artists
   }
 }
 

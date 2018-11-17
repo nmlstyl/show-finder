@@ -1,8 +1,13 @@
 body{
-  background-image: url('/bricks.jpg');
+  /* background-image: url('/bricks.jpg'); */
+  background-color: black;
   background-repeat: repeat;
   background-attachment: fixed;
   color: white;
+}
+
+header{
+  background-color: black;
 }
 
 .form-control{
@@ -22,24 +27,22 @@ form{
 }
 
 .artist{
-  background-color: black;
-  padding-left: .8em;
-  padding-right: .8em;
-  padding-bottom: .8em;
+  background-color: white;
+  color: black;
+  /* top | right | bottom | left */
+  padding: 0 1em .5em 1em;
   margin-bottom: 20px;
-  border-radius: 8px;
-  color: #999999;
   word-wrap:break-word;
+  border-radius: 8px;
 }
 
 h3{
-  color: white;
   padding-top: .6em;
 }
 
 h2{
-  background-color: black;
-  padding: .3em;
+  /* top | right | bottom | left */
+  padding: .3em 0 .3em 0;
   border-radius: 8px;
 }
 
@@ -49,4 +52,18 @@ ul{
 
 li{
   margin-top: 1em;
+}
+
+#savedArtists{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+#savedArtist{
+    float: left;
+    /* top | right | bottom | left */
+    margin: 0 1em 1em 0;
+    color:black;
 }
