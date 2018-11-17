@@ -88,14 +88,14 @@ export function createSongkickArtist(name, songkick_id, user_id){
   }
 }
 
-export function getSavedSongkickArtists(user_id){
+export function getSavedArtists(user_id){
   return dispatch => {
-    dispatch({type: 'LOADING_SAVED_SONGKICK_ARTISTS'})
-    fetch(`http://api.localhost:3001/users/${user_id}/songkick_artists`)
+    dispatch({type: 'LOADING_SAVED_ARTISTS'})
+    fetch(`http://api.localhost:3001/users/${user_id}/artists`)
         .then(response => response.json())
         .then(artist => {
           debugger
-          dispatch({type: 'FETCH_SAVED_SONGKICK_ARTISTS', payload: artist })
+          dispatch({type: 'FETCH_SAVED_ARTISTS', payload: artist })
         })
   }
 }
