@@ -29,6 +29,7 @@ form{
   margin-bottom: 20px;
   border-radius: 8px;
   color: #999999;
+  word-wrap:break-word;
 }
 
 h3{

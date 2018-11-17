@@ -21,9 +21,10 @@ class ArtistForm extends Component {
   }
 
   componentDidMount(){
+    const searchTerm = decodeURIComponent(this.props.searchValue)
     if (this.props.searchValue !== null){
       this.setState({
-        bandText: decodeURIComponent(this.props.searchValue)
+        bandText: searchTerm
       })
     }
   }
@@ -31,7 +32,7 @@ class ArtistForm extends Component {
   render() {
     return (
       <div className="col-md-4">
-        <form name='bandText'
+        <form id='bandForm' name='bandText'
               onSubmit={ event => this.handleOnSubmit(event) }>
           <div className="form-group">
             <label htmlFor="bandInput">Search for Bands:</label>
