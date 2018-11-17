@@ -1,9 +1,10 @@
 import React from 'react'
 
 const SavedArtist = (props) => {
+
     return(
-      <div className="row">
-        <h3>{ props.name }</h3>
+      <div className="row artist">
+        <h3><a href={'/artistsearch/' + props.name }>{ props.name }</a></h3>
       </div>
     )
 }
