@@ -16,7 +16,7 @@ class SavedBandsContainer extends Component {
   render() {
     return (
       <div>
-        <h2> Artists</h2>
+
           <div className="row">
             <div className="col-sm-6"><SongkickArtists songkickArtists={ this.props.songkickArtists }
                                                        getSongkickShows={ this.props.actions.getSongkickShows }
@@ -25,7 +25,7 @@ class SavedBandsContainer extends Component {
                                                           getBandsintownShows={ this.props.actions.getBandsintownShows }
                                                           cookieAccess={ this.props.cookieAccess }/></div>
           </div>
-
+          <h2>Saved Artist Queries</h2>
           <div className='row'><SavedArtists savedArtists={ this.props.savedArtists } fetchByArtist={ this.props.actions.fetchByArtist }/></div>
       </div>
     )
