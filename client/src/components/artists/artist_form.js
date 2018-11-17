@@ -22,7 +22,6 @@ class ArtistForm extends Component {
 
   componentDidMount(){
     if (this.props.searchValue !== null){
-      debugger
       this.setState({
         bandText: decodeURIComponent(this.props.searchValue)
       })
