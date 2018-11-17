@@ -4,11 +4,12 @@ import SavedArtist from './saved_artist'
 const SavedArtists = (props) => {
 
     function displayArtists(){
-      return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name }/>)
+      debugger
+      return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name } key={ idx }/>)
     }
 
     return(
-      <div id="artists">
+      <div className="row" id="artists">
         { displayArtists() }
       </div>
     )

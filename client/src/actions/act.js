@@ -74,16 +74,15 @@ export function loginThroughApi(email, password){
   }
 }
 
-export function createSongkickArtist(name, songkick_id, user_id){
+export function createSavedArtist(name, user_id){
   return dispatch => {
-    dispatch({type: 'LOADING_SAVED_SONGKICK_ARTISTS'})
-    fetch(`http://api.localhost:3001/users/${user_id}/songkick_artists?name=${name}&songkick_id=${songkick_id}`, {
+    dispatch({type: 'LOADING_SAVED_ARTISTS'})
+    fetch(`http://api.localhost:3001/users/${user_id}/artists?name=${name}`, {
            method: 'POST'
         })
         .then(response => response.json())
         .then(artist => {
-          debugger
-          dispatch({type: 'ADD_SAVED_SONGKICK_ARTIST', payload: artist })
+          dispatch({type: 'ADD_SAVED_ARTIST', payload: artist })
         })
   }
 }
@@ -94,7 +93,6 @@ export function getSavedArtists(user_id){
     fetch(`http://api.localhost:3001/users/${user_id}/artists`)
         .then(response => response.json())
         .then(artist => {
-          debugger
           dispatch({type: 'FETCH_SAVED_ARTISTS', payload: artist })
         })
   }

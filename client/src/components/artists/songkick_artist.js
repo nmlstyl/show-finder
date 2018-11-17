@@ -20,7 +20,7 @@ const SongkickArtist = (props) => {
 
     const generateSaveButton = () => {
       if (isLoggedIn() === true){
-        return <button className='btn-xs btn-default' onClick={ () => props.actions.createSongkickArtist(props.name, props.id, props.cookieAccess.cookies.id) }>Save Artist</button>
+        return <button className='btn-xs btn-default' onClick={ () => props.actions.createSavedArtist(props.name, props.cookieAccess.cookies.id) }>Save Artist</button>
       }
     }
 
