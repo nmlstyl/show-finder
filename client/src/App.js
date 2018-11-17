@@ -20,7 +20,7 @@ class App extends Component {
           <Route path="/login" render={ () => (<LoginContainer cookieAccess={this.props.cookies}/>) } />
           <Route path="/savedbands" render={ () => (<SavedBandsContainer cookieAccess={this.props.cookies}/>) } />
           <Route exact path="/" render={ () => (<QueryByNameContainer cookieAccess={this.props.cookies} />) } />
-          <Route path="/artistsearch/:bandInput" render={ (props) => (<QueryByNameContainer cookieAccess={this.props.cookies} {...props}/>) } />
+          <Route path="/artistsearch" render={ (props) => (<QueryByNameContainer cookieAccess={this.props.cookies} {...props}/>) } />
         </div>
       </Router>
     );

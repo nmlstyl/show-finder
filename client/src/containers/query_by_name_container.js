@@ -30,6 +30,7 @@ class QueryByNameContainer extends Component {
 
   componentDidMount(){
     if (this.props.location !== undefined){
+      const name = this.props.location.search.substr(6)
       debugger
     }
   }
