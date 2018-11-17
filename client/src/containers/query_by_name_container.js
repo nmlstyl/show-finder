@@ -14,7 +14,7 @@ class QueryByNameContainer extends Component {
     return (
       <div>
         <br />
-        <div className="row"><ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } searchValue={ this.detectSearchValue() }/></div>
+        <div className="row"><ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } /></div>
 
         <div className="row">
           <div className="col-sm-6"><SongkickArtists songkickArtists={ this.props.songkickArtists }
@@ -27,15 +27,6 @@ class QueryByNameContainer extends Component {
       </div>
     )
   }
-
-  detectSearchValue = () => {
-    if (this.props.location !== undefined){
-      return this.props.location.search.substr(6)
-    } else {
-      return null
-    }
-  }
-
 }
 
 function mapStateToProps(rootReducer) {

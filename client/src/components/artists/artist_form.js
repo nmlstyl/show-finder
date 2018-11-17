@@ -20,14 +20,6 @@ class ArtistForm extends Component {
     })
   }
 
-  componentDidMount(){
-    const searchTerm = decodeURIComponent(this.props.searchValue)
-    if (this.props.searchValue !== null){
-      this.setState({
-        bandText: searchTerm
-      })
-    }
-  }
 
   render() {
     return (
@@ -42,6 +34,7 @@ class ArtistForm extends Component {
                    onChange={ event => this.handleChange(event) } value={ this.state.bandText } />
           </div>
           <button type="submit"
+                  ref='submitButton'
                   className="btn btn-default">Submit</button>
         </form>
       </div>
