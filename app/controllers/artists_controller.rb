@@ -2,6 +2,7 @@ class ArtistsController < ApplicationController
 
   def index
     @artists = Artist.all
+    @artists = @artists.sort_by { |artist| artist.name.downcase }
     render json: @artists
   end
 
