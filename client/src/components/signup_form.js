@@ -38,6 +38,7 @@ class SignupForm extends Component {
     return (
       <div className="col-md-4">
       <h2>SIGNUP</h2>
+      <p>Passwords must be 6 to 20 characters.</p><br></br>
 
         <form name='signup'
               onSubmit={ event => this.handleOnSubmit(event) }>
@@ -64,6 +65,8 @@ class SignupForm extends Component {
           <button type="submit"
                   className="btn btn-default">Submit</button>
         </form>
+
+
       </div>
     )
   }
