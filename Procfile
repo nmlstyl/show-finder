@@ -1,1 +1,2 @@
-foreman start -p 3000
+web: cd client && npm start
+api: bundle exec rails s -p 3001
