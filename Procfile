@@ -1,1 +1,1 @@
-rake start
+foreman start -p 3000
