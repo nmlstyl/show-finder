@@ -8,7 +8,7 @@ const Navbar = (props) => {
 
     function generateLogoutButton(){
         if (isLoggedIn()){
-          return <button type="button" onClick={ () => endSession() } className="btn btn-default navbar-btn">Logout</button>
+          return <a href="/"><button type="button" onClick={ () => endSession() } className="btn btn-default navbar-btn">Logout</button></a>
         }
     }
 

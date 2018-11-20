@@ -13,7 +13,6 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
         <div className="App">
           <Navbar cookieAccess={this.props.cookies} />
           <Route path="/signup" render={ () => (<SignupContainer cookieAccess={this.props.cookies}/>) } />
@@ -21,8 +20,7 @@ class App extends Component {
           <Route path="/savedbands" render={ () => (<SavedBandsContainer cookieAccess={this.props.cookies}/>) } />
           <Route exact path="/" render={ () => (<QueryByNameContainer cookieAccess={this.props.cookies} />) } />
         </div>
-      </Router>
-    );
+    )
   }
 }
 
