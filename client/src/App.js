@@ -7,7 +7,7 @@ import SavedBandsContainer from './containers/saved_bands_container'
 import Navbar from './components/navbar'
 
 import { withCookies } from 'react-cookie';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
 

@@ -4,15 +4,14 @@ import BandsintownShow from './bandsintown_show'
 const BandsintownShows = (props) => {
 
   function renderShows(){
-    return props.bandsintownShows.map((show, idx) =>  { if (props.artistIdFromArtist === show.artist_id){
-                                                          return <li><BandsintownShow name={ show.name }
-                                                                              venue={ show.venue }
-                                                                               location={ show.location }
-                                                                               date={ show.date }
-                                                                               time={ show.time }
-                                                                               artistId={ show.artist_id }/></li>
-                                                                           }
-                                                    })
+    return props.bandsintownShows
+      .filter(show => props.artistIdFromArtist === show.artist_id)
+      .map((show, idx) => <li><BandsintownShow name={ show.name }
+                                               venue={ show.venue }
+                                               location={ show.location }
+                                               date={ show.date }
+                                               time={ show.time }
+                                               artistId={ show.artist_id }/></li>)
   }
 
     return(
