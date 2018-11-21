@@ -2,7 +2,7 @@ import fetch from 'isomorphic-fetch';
 
 const songkick_key = process.env.REACT_APP_SONGKICK_API_KEY
 const bandsintown_app_id = process.env.REACT_APP_BANDSINTOWN_APP_ID
-const base_url = 'show-findr.herokuapp.com'
+const base_url = 'localhost:3001'
 
 export function fetchByArtist(artist_name) {
   return (dispatch) => {
