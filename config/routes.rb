@@ -7,7 +7,19 @@ Rails.application.routes.draw do
 
   get 'login', to: 'users#login'
 
-  get '*path', to: "application#fallback_index_html", constraints: ->(request) do
+  get '/signup', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
+
+  get '/login', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
+
+  get '/savedbands', to: "application#fallback_index_html", constraints: ->(request) do
+    !request.xhr? && request.format.html?
+  end
+
+  get '/', to: "application#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end
 end
