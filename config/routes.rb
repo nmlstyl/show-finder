@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'login', to: 'users#login'
 
+  # For react-router and heroku
+
   get '/signup', to: "application#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end

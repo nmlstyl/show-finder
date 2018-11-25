@@ -3,7 +3,7 @@ import fetch from 'isomorphic-fetch';
 const songkick_key = process.env.REACT_APP_SONGKICK_API_KEY
 const bandsintown_app_id = process.env.REACT_APP_BANDSINTOWN_APP_ID
 // dev url
-// const base_url = 'localhost:3001'
+// const base_url = 'api.localhost:3001'
 const base_url = 'show-findr.herokuapp.com'
 
 export function fetchByArtist(artist_name) {
@@ -58,7 +58,7 @@ export function getBandsintownShows(name, artist_id){
 export function signupThroughApi(email, password){
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
-    fetch(`http://api.${base_url}/users?email=${email}&password=${password}`, {
+    fetch(`http://${base_url}/users?email=${email}&password=${password}`, {
            method: 'POST'
         })
         .then(response => response.json())
@@ -69,7 +69,7 @@ export function signupThroughApi(email, password){
 export function loginThroughApi(email, password){
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
-    fetch(`http://api.${base_url}/login?email=${email}&password=${password}`)
+    fetch(`http://${base_url}/login?email=${email}&password=${password}`)
         .then(response => response.json())
         .then(user => {
           dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {userFound: user.userFound, email: user.email, id: user.id }) })
@@ -80,7 +80,7 @@ export function loginThroughApi(email, password){
 export function createSavedArtist(name, user_id){
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
-    fetch(`http://api.${base_url}/users/${user_id}/artists?name=${name}`, {
+    fetch(`http://${base_url}/users/${user_id}/artists?name=${name}`, {
            method: 'POST'
         })
         .then(response => response.json())
@@ -93,7 +93,7 @@ export function createSavedArtist(name, user_id){
 export function getSavedArtists(user_id){
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
-    fetch(`http://api.${base_url}/users/${user_id}/artists`)
+    fetch(`http://${base_url}/users/${user_id}/artists`)
         .then(response => response.json())
         .then(artist => {
           dispatch({type: 'FETCH_SAVED_ARTISTS', payload: artist })
