@@ -9,19 +9,19 @@ Rails.application.routes.draw do
 
   # For react-router and heroku
 
-  get 'signup', to: "application#fallback_index_html", constraints: ->(request) do
+  get 'signup', to: "staticpages#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end
 
-  get 'login', to: "application#fallback_index_html", constraints: ->(request) do
+  get 'login', to: "staticpages#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end
 
-  get 'savedbands', to: "application#fallback_index_html", constraints: ->(request) do
+  get 'savedbands', to: "staticpages#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end
 
-  get '/', to: "application#fallback_index_html", constraints: ->(request) do
+  get '/', to: "staticpages#fallback_index_html", constraints: ->(request) do
     !request.xhr? && request.format.html?
   end
 end
