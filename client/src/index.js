@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 
 import { CookiesProvider } from 'react-cookie'
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
@@ -17,7 +17,7 @@ ReactDOM.render(
 <CookiesProvider>
   <Provider store={store} >
     <Router>
-      <App />
+      <Route path='/' component={ App }/>
     </Router>
   </Provider>
 </CookiesProvider>, document.getElementById('root')
