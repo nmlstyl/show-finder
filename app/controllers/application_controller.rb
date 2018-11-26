@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
   def fallback_index_html
-    render :file => 'public/index.html', :layout => false, :status => 200
+    render_to_string :file => '/public/index.html', :layout => false, :status => 200
   end
 end
