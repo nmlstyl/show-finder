@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     if @user.save!
       render json: {userCreated: true, id: @user.id, email: @user.email}
     else
+      # need to check for errors by .valid? then .errors[:password] or .errors[:email]
       render json: {userCreated: false}
     end
   end
