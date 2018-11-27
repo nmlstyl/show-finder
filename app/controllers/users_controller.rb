@@ -11,11 +11,12 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save!
+    if @user.valid?
+      @user.save
       render json: {userCreated: true, id: @user.id, email: @user.email}
     else
-      # need to check for errors by .valid? then .errors[:password] or .errors[:email]
-      render json: {userCreated: false}
+      errors = @user.errors.to_json
+      render json: {userCreated: false, errors: errors}
     end
   end
 
