@@ -1,6 +1,6 @@
 class EmailValidator < ActiveModel::Validator
   def validate(record)
-    if record.email != URI::MailTo::EMAIL_REGEXP
+    if !record.email.match?(/^.+@.+$/)
       record.errors.add(:email, 'Email format is wrong.')
     end
 
