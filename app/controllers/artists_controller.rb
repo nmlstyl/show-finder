@@ -8,7 +8,7 @@ class ArtistsController < ApplicationController
 
   def create
     @user = User.find(params[:user_id])
-    @artist = @user.artists.build(name: params[:name])
+    @artist = @user.artists.build(artist_params)
     if @artist.save
       render json: {ArtistCreated: true, name: @artist.name, id: @artist.id}
     else
@@ -16,6 +16,8 @@ class ArtistsController < ApplicationController
     end
   end
 
-  # strong params
+  def artist_params
+     params.permit(:name)
+  end
 
 end
