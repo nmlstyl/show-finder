@@ -18,7 +18,8 @@ export function fetchByArtist(artist_name) {
                         let obj = artists.resultsPage.results
                         if (Object.keys(obj).length !== 0){
                           const results = artists.resultsPage.results.artist.map(artist => {
-                            return Object.assign({}, {id: artist.id, name: artist.displayName, touringUntil: artist.onTourUntil})})
+                            return {id: artist.id, name: artist.displayName, touringUntil: artist.onTourUntil}
+                          })
                           dispatch({type: 'FETCH_SONGKICK_ARTISTS', payload: results})
                         }
                       })
@@ -63,7 +64,7 @@ export function signupThroughApi(email, password){
            method: 'POST'
         })
         .then(response => response.json())
-        .then(user => dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {userCreated: user.userCreated, email: user.email, id: user.id }) }) )
+        .then(user => dispatch({type: 'FETCH_USERS', payload: {userCreated: user.userCreated, email: user.email, id: user.id }}))
   }
 }
 
@@ -72,9 +73,7 @@ export function loginThroughApi(email, password){
     dispatch({type: 'LOADING_USERS'})
     fetch(`http://${base_url}/apilogin?email=${email}&password=${password}`)
         .then(response => response.json())
-        .then(user => {
-          dispatch({type: 'FETCH_USERS', payload: Object.assign({}, {userFound: user.userFound, email: user.email, id: user.id }) })
-        })
+        .then(user => dispatch({type: 'FETCH_USERS', payload: {userFound: user.userFound, email: user.email, id: user.id }}))
   }
 }
 
@@ -86,9 +85,7 @@ export function createSavedArtist(name, user_id){
            method: 'POST'
         })
         .then(response => response.json())
-        .then(artist => {
-          dispatch({type: 'ADD_SAVED_ARTIST', payload: artist })
-        })
+        .then(artist => dispatch({type: 'ADD_SAVED_ARTIST', payload: artist }))
   }
 }
 
