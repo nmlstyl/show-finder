@@ -74,9 +74,16 @@ export function signupThroughApi(email, password){
 }
 
 export function loginThroughApi(email, password){
+  let data = {email: email, password: password}
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
-    fetch(`http://${base_url}/apilogin?email=${email}&password=${password}`)
+    fetch(`http://${base_url}/apilogin`, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        })
         .then(response => response.json())
         .then(user => dispatch({type: 'FETCH_USERS', payload: {userFound: user.userFound, email: user.email, id: user.id }}))
   }
