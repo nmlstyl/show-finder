@@ -58,10 +58,15 @@ export function getBandsintownShows(name, artist_id){
 }
 
 export function signupThroughApi(email, password){
+  let data = {email: email, password: password}
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
-    fetch(`http://${base_url}/users?email=${email}&password=${password}`, {
-           method: 'POST'
+    fetch(`http://${base_url}/users`, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers:{
+            'Content-Type': 'application/json'
+          }
         })
         .then(response => response.json())
         .then(user => dispatch({type: 'FETCH_USERS', payload: {userCreated: user.userCreated, email: user.email, id: user.id }}))

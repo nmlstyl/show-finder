@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    data = JSON.parse(request.raw_post)
+    params[:email] = data['email']
+    params[:password] = data['password']
     @user = User.new(user_params)
     if @user.valid?
       @user.save
