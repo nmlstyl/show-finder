@@ -7,13 +7,21 @@ class ArtistsController < ApplicationController
   end
 
   def create
+    request_to_params
     @user = User.find(params[:user_id])
     @artist = @user.artists.build(artist_params)
     if @artist.save
-      render json: {ArtistCreated: true, name: @artist.name, id: @artist.id}
+      render json: { artistCreated: true, name: @artist.name, id: @artist.id }
     else
-      render json: {ArtistCreated: false}
+      render json: { artistCreated: false }
     end
+  end
+
+  private
+
+  def request_to_params
+    data = JSON.parse(request.raw_post)
+    params[:name] = data['name']
   end
 
   def artist_params

@@ -90,11 +90,15 @@ export function loginThroughApi(email, password){
 }
 
 export function createSavedArtist(name, user_id){
+  let data = { name: name }
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
-    // pass info in body instead
     fetch(`http://${base_url}/users/${user_id}/artists?name=${name}`, {
-           method: 'POST'
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers:{
+            'Content-Type': 'application/json'
+          }
         })
         .then(response => response.json())
         .then(artist => dispatch({type: 'ADD_SAVED_ARTIST', payload: artist }))
