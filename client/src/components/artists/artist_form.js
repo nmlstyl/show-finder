@@ -42,4 +42,4 @@ class ArtistForm extends Component {
   }
 }
 
-export default ArtistForm;
+export default ArtistForm

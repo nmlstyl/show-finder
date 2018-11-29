@@ -79,7 +79,6 @@ export function loginThroughApi(email, password){
 }
 
 export function createSavedArtist(name, user_id){
-    console.log('C')
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
     // pass info in body instead
@@ -88,11 +87,9 @@ export function createSavedArtist(name, user_id){
         })
         .then(response => response.json())
         .then(artist => {
-          console.log('D')
           dispatch({type: 'ADD_SAVED_ARTIST', payload: artist })
         })
   }
-  console.log("E")
 }
 
 export function getSavedArtists(user_id){

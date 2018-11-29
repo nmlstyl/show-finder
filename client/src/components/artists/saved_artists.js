@@ -2,11 +2,9 @@ import React from 'react'
 import SavedArtist from './saved_artist'
 
 const SavedArtists = (props) => {
-
     function displayArtists(){
-      return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name } />)
+      return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name } fetchByArtist={ props.fetchByArtist }/>)
     }
-    // add savedArtist component and add like button
 
     return(
       <div className="col-lg-12" id="savedartists">

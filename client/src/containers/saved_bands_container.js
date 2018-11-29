@@ -16,7 +16,6 @@ class SavedBandsContainer extends Component {
   render() {
     return (
       <div>
-
           <div className="row">
             <div className="col-sm-6"><SongkickArtists songkickArtists={ this.props.songkickArtists }
                                                        getSongkickShows={ this.props.actions.getSongkickShows }
