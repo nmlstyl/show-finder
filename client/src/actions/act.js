@@ -17,7 +17,8 @@ export function fetchByArtist(artist_name) {
       .then(artists => {
                         let obj = artists.resultsPage.results
                         if (Object.keys(obj).length !== 0){
-                          const results = artists.resultsPage.results.artist.map(artist => { return Object.assign({}, {id: artist.id, name: artist.displayName, touringUntil: artist.onTourUntil})})
+                          const results = artists.resultsPage.results.artist.map(artist => {
+                            return Object.assign({}, {id: artist.id, name: artist.displayName, touringUntil: artist.onTourUntil})})
                           dispatch({type: 'FETCH_SONGKICK_ARTISTS', payload: results})
                         }
                       })
@@ -78,16 +79,20 @@ export function loginThroughApi(email, password){
 }
 
 export function createSavedArtist(name, user_id){
+    console.log('C')
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
+    // pass info in body instead
     fetch(`http://${base_url}/users/${user_id}/artists?name=${name}`, {
            method: 'POST'
         })
         .then(response => response.json())
         .then(artist => {
+          console.log('D')
           dispatch({type: 'ADD_SAVED_ARTIST', payload: artist })
         })
   }
+  console.log("E")
 }
 
 export function getSavedArtists(user_id){

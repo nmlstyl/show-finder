@@ -16,4 +16,6 @@ class ArtistsController < ApplicationController
     end
   end
 
+  # strong params
+
 end
