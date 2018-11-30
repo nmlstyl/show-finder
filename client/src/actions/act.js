@@ -30,7 +30,7 @@ export function fetchByArtist(artist_name) {
     fetch(`https://rest.bandsintown.com/artists/${artist_name}?app_id=${bandsintown_app_id}`)
       .then(response => response.json())
       .then(artist => {
-        const result = Object.assign({}, {id: artist.id, name: artist.name, eventCount: artist.upcoming_event_count})
+        const result = {id: artist.id, name: artist.name, eventCount: artist.upcoming_event_count}
         dispatch({type: 'FETCH_BANDSINTOWN_ARTISTS', payload: result})
       })
 
@@ -54,13 +54,13 @@ export function getBandsintownShows(name, artist_id){
     fetch(`https://rest.bandsintown.com/artists/${name}/events?app_id=${bandsintown_app_id}`)
       .then(response => response.json())
       .then(shows => {
-          const showData = shows.map((show) => { return {  artist_id: artist_id,
-                                                            name: show.description,
-                                                            location: show.venue.city,
-                                                            venue: show.venue.name,
-                                                            date: show.datetime.substring(0, 10),
-                                                            time: show.datetime.substring(11, 19)
-                                                }})
+          const showData = shows.map((show) => { return { artist_id: artist_id,
+                                                          name: show.description,
+                                                          location: show.venue.city,
+                                                          venue: show.venue.name,
+                                                          date: show.datetime.substring(0, 10),
+                                                          time: show.datetime.substring(11, 19) }
+                                                        })
         dispatch({type: 'FETCH_BANDSINTOWN_SHOWS', payload: showData})
       })
   }
@@ -119,8 +119,9 @@ export function getSavedArtists(user_id){
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
     fetch(`http://${base_url}/users/${user_id}/artists`)
         .then(response => response.json())
-        .then(artist => {
-          dispatch({type: 'FETCH_SAVED_ARTISTS', payload: artist })
+        .then(artists => {
+          const artistData = artists.map((artist) => { return { name: artist.name, id: artist.id }} )
+          dispatch({type: 'FETCH_SAVED_ARTISTS', payload: artistData})
         })
   }
 }

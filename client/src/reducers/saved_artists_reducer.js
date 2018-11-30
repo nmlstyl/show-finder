@@ -9,8 +9,7 @@ export default function savedArtistsReducer(state = {artists: [], loading: false
 
     case 'ADD_SAVED_ARTIST':
       // avoid Object assign - should send object anyway
-      const artist = Object.assign({}, {name: action.payload.name, id: action.payload.id})
-      return { ...state, artists: [...state.artists, artist] }
+      return { ...state, artists: [...state.artists, action.payload] }
 
     default:
       return state
