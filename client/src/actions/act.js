@@ -43,7 +43,14 @@ export function getSongkickShows(artist_id){
     fetch(`https://api.songkick.com/api/3.0/artists/${artist_id}/calendar.json?apikey=${songkick_key}`)
       .then(response => response.json())
       .then(shows => {
-                        dispatch({type: 'FETCH_SONGKICK_SHOWS', payload: {shows: shows.resultsPage.results.event, artist_id: artist_id}})
+          const showsData = shows.resultsPage.results.event.map(show => { return { artist_id: artist_id,
+                                                                                   name: show.displayName,
+                                                                                   location: show.location.city,
+                                                                                   venue: show.venue.displayName,
+                                                                                   date: show.start.date,
+                                                                                   time: show.start.time }
+                                                                                 })
+            dispatch({ type: 'FETCH_SONGKICK_SHOWS', payload: showsData })
       })
   }
 }

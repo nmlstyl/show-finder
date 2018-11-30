@@ -6,12 +6,13 @@ const BandsintownShows = (props) => {
   function renderShows(){
     return props.bandsintownShows
       .filter(show => props.artistIdFromArtist === show.artist_id)
-      .map((show, idx) => <li><BandsintownShow name={ show.name }
-                                               venue={ show.venue }
-                                               location={ show.location }
-                                               date={ show.date }
-                                               time={ show.time }
-                                               artistId={ show.artist_id }/></li>)
+      .map((show, idx) => <BandsintownShow name={ show.name }
+                                           venue={ show.venue }
+                                           location={ show.location }
+                                           date={ show.date }
+                                           time={ show.time }
+                                           artistId={ show.artist_id }
+                                           key={ idx }/>)
   }
 
     return(
