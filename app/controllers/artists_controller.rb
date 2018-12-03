@@ -5,7 +5,6 @@ class ArtistsController < ApplicationController
     @user = User.find(params[:user_id])
     @artists = @user.artists
     @artists = @artists.sort_by { |artist| artist.name.downcase }
-        binding.pry
     render json: @artists
   end
 

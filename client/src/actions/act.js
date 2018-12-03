@@ -122,15 +122,13 @@ export function createSavedArtist(name, user_id){
 }
 
 export function getSavedArtists(user_id){
-  debugger
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
     fetch(`http://${base_url}/users/${user_id}/artists`)
         .then(response => response.json())
         .then(artists => {
-          debugger
           const artistData = artists.map((artist) => {
-            return { name: artist.name, id: artist.id }
+            return { name: artist.name, id: artist.id, likes: artist.likes }
           } )
           dispatch({type: 'FETCH_SAVED_ARTISTS', payload: artistData})
         })

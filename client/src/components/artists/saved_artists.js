@@ -7,7 +7,7 @@ const SavedArtists = (props) => {
                                                                   fetchByArtist={ props.fetchByArtist }
                                                                   key={ idx }
                                                                   likeAction={ props.likeAction }
-                                                                  likes={ artist.like }/>)
+                                                                  likes={ artist.likes }/>)
     }
 
     return(
