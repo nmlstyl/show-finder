@@ -11,12 +11,12 @@ class SavedArtist extends Component {
         this.setState({
           likes: this.state.likes - 1
         })
-        // add like to artist
+        this.props.likeAction(this.props.id, 'add')
       } else {
         this.setState({
           likes: this.state.likes + 1
         })
-        // take like away from artist
+        this.props.likeAction(this.props.id, 'remove')
       }
     }
 

@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :artists, only: [:create, :index]
   end
 
+  resources :artists, only: [:edit]
+
   post 'apilogin', to: "users#login"
 
   # For react-router and heroku

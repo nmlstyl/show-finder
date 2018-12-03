@@ -25,7 +25,9 @@ class SavedBandsContainer extends Component {
                                                           cookieAccess={ this.props.cookieAccess }/></div>
           </div>
           <h2>Saved Artist Queries</h2>
-          <div className='row'><SavedArtists savedArtists={ this.props.savedArtists } fetchByArtist={ this.props.actions.fetchByArtist }/></div>
+          <div className='row'><SavedArtists savedArtists={ this.props.savedArtists }
+                                             fetchByArtist={ this.props.actions.fetchByArtist }
+                                             likeAction={ this.props.actions.likeAction }/></div>
       </div>
     )
   }

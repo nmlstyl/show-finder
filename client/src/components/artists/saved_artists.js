@@ -3,7 +3,10 @@ import SavedArtist from './saved_artist'
 
 const SavedArtists = (props) => {
     function displayArtists(){
-      return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name } fetchByArtist={ props.fetchByArtist } key={ idx }/>)
+      return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name }
+                                                                  fetchByArtist={ props.fetchByArtist }
+                                                                  key={ idx }
+                                                                  likeAction={ props.likeAction }/>)
     }
 
     return(

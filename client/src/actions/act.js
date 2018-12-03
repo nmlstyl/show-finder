@@ -132,3 +132,21 @@ export function getSavedArtists(user_id){
         })
   }
 }
+
+export function likeAction(artist_id, add_or_remove){
+  let data = { action: add_or_remove }
+  return dispatch => {
+    dispatch({type: 'LOADING_SAVED_ARTISTS'})
+    fetch(`http://${base_url}/artists/${artist_id}/edit`, {
+          method: 'PATCH',
+          body: JSON.stringify(data),
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(artist => {
+           debugger
+        })
+  }
+}

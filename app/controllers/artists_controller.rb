@@ -7,10 +7,10 @@ class ArtistsController < ApplicationController
   end
 
   def create
-    binding.pry
     request_to_params
     @user = User.find(params[:user_id])
-    @artist = @user.artists.build(artist_params)
+    @artist = Artist.find_or_create_by(artist_params)
+    @user.artists << @artist
     if @artist.save
       render json: { artistCreated: true, name: @artist.name, id: @artist.id }
     else
