@@ -7,9 +7,17 @@ class SavedArtist extends Component {
     }
 
     addLike = () => {
-      this.setState({
-        likes: this.state.likes += 1
-      })
+      if (this.state.likes === 1){
+        this.setState({
+          likes: this.state.likes - 1
+        })
+        // add like to artist
+      } else {
+        this.setState({
+          likes: this.state.likes + 1
+        })
+        // take like away from artist
+      }
     }
 
     render(){

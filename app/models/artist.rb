@@ -1,5 +1,6 @@
 class Artist < ApplicationRecord
   validates :name, uniqueness: true
 
-  belongs_to :user
+  has_many :users_artists
+  has_many :users, through: :users_artists
 end

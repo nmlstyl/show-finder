@@ -4,5 +4,6 @@ class User < ApplicationRecord
   validates_with EmailValidator
   validates :password, presence: true, length: { in: 6..20 }
 
-  has_many :artists
+  has_many :users_artists
+  has_many :artists, through: :users_artists
 end

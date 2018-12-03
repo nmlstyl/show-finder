@@ -7,6 +7,7 @@ class ArtistsController < ApplicationController
   end
 
   def create
+    binding.pry
     request_to_params
     @user = User.find(params[:user_id])
     @artist = @user.artists.build(artist_params)
