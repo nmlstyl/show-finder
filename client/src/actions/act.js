@@ -109,7 +109,7 @@ export function createSavedArtist(name, user_id){
   let data = { name: name }
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
-    fetch(`http://${base_url}/users/${user_id}/artists?name=${name}`, {
+    fetch(`http://${base_url}/users/${user_id}/artists`, {
           method: 'POST',
           body: JSON.stringify(data),
           headers:{
@@ -122,12 +122,16 @@ export function createSavedArtist(name, user_id){
 }
 
 export function getSavedArtists(user_id){
+  debugger
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
     fetch(`http://${base_url}/users/${user_id}/artists`)
         .then(response => response.json())
         .then(artists => {
-          const artistData = artists.map((artist) => { return { name: artist.name, id: artist.id }} )
+          debugger
+          const artistData = artists.map((artist) => {
+            return { name: artist.name, id: artist.id }
+          } )
           dispatch({type: 'FETCH_SAVED_ARTISTS', payload: artistData})
         })
   }

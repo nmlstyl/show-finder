@@ -7,10 +7,12 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/act'
 
+
+
 class SavedBandsContainer extends Component {
 
   componentDidMount() {
-    this.props.actions.getSavedArtists(this.props.cookieAccess.id)
+    this.props.actions.getSavedArtists(this.props.cookieAccess.cookies.id)
   }
 
   render() {

@@ -1,8 +1,11 @@
 class ArtistsController < ApplicationController
 
   def index
-    @artists = Artist.all
+
+    @user = User.find(params[:user_id])
+    @artists = @user.artists
     @artists = @artists.sort_by { |artist| artist.name.downcase }
+        binding.pry
     render json: @artists
   end
 
@@ -12,10 +15,17 @@ class ArtistsController < ApplicationController
     @artist = Artist.find_or_create_by(artist_params)
     @user.artists << @artist
     if @artist.save
-      render json: { artistCreated: true, name: @artist.name, id: @artist.id }
+      render json: { artistCreated: true, name: @artist.name, id: @artist.id, likes: @artist.likes }
     else
       render json: { artistCreated: false }
     end
+  end
+
+  def edit
+    @artist.find(params[:artist_id])
+    binding.pry
+    # update action with .update_column
+    # read with .read_attribute
   end
 
   private

@@ -6,7 +6,8 @@ const SavedArtists = (props) => {
       return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name }
                                                                   fetchByArtist={ props.fetchByArtist }
                                                                   key={ idx }
-                                                                  likeAction={ props.likeAction }/>)
+                                                                  likeAction={ props.likeAction }
+                                                                  likes={ artist.like }/>)
     }
 
     return(

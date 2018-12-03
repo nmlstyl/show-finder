@@ -2,8 +2,11 @@ import React, { Component } from 'react';
 
 class SavedArtist extends Component {
 
-    state = {
-      likes: 0
+    constructor(props){
+      super(props)
+      this.state = {
+        likes: this.props.likes
+      }
     }
 
     addLike = () => {
