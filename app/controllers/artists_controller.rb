@@ -1,11 +1,15 @@
 class ArtistsController < ApplicationController
 
   def index
-
     @user = User.find(params[:user_id])
     @artists = @user.artists
     @artists = @artists.sort_by { |artist| artist.name.downcase }
     render json: @artists
+  end
+
+  def show
+    @artist = Artist.find(params[:artist_id])
+    render json: @artist
   end
 
   def create
