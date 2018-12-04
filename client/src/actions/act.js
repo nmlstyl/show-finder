@@ -135,12 +135,12 @@ export function getSavedArtists(user_id){
   }
 }
 
-export function likeAction(artist_id, user_id){
-  let data
+export function likeAction(artist_id, user_id, switch){
+  const data = { aritst_id: artist_id, user_id: user_id, switch: switch }
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
-    fetch(`http://${base_url}/artists/${artist_id}/edit`, {
-          method: 'PATCH',
+    fetch(`http://${base_url}/likes`, {
+          method: 'POST',
           body: JSON.stringify(data),
           headers:{
             'Content-Type': 'application/json'
@@ -148,6 +148,7 @@ export function likeAction(artist_id, user_id){
         })
         .then(response => response.json())
         .then(artist => {
+          debugger
         })
   }
 }
