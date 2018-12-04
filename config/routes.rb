@@ -5,9 +5,7 @@ Rails.application.routes.draw do
     resources :artists, only: [:create, :index]
   end
 
-  resources :artists, only: [:show] do
-    resources :likes, only: [:create, :update]
-  end
+  post 'likes', to: 'likes#like_action'
 
   post 'apilogin', to: "users#login"
 

@@ -1,13 +1,13 @@
 class LikesController < ApplicationController
 
-  def create
-    @like = Like.create(like_params)
-    render json: @like
-  end
-
-  def update
-    @like = Like.update(like_params)
-    render json: @like
+  def like_action
+    request_to_params
+    if Like.where(arists_id: params[:artist_id], user_id: params[:user_id]).exist?
+      binding.pry
+    else
+      @like = Like.create(like_params)
+      render json: @like
+    end
   end
 
   private
