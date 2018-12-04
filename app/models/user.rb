@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :users_artists
   has_many :artists, through: :users_artists
+  has_many :likes
 end
