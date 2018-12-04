@@ -12,12 +12,15 @@ class LikesController < ApplicationController
 
       @like.save
 
-      render json: @like
+      @user = @like.user
+      render json: @user.artists
     else
       @like = Like.create(like_params)
       @like.switch = true
       @like.save
-      render json: @like
+
+      @user = @like.user
+      render json: @user.artists
     end
   end
 

@@ -8,7 +8,6 @@ export default function savedArtistsReducer(state = {artists: [], loading: false
       return { ...state, artists: artists }
 
     case 'ADD_SAVED_ARTIST':
-      // avoid Object assign - should send object anyway
       return { ...state, artists: [...state.artists, action.payload] }
 
     default:
