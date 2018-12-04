@@ -1,24 +1,62 @@
-import React from 'react'
+import React, { Component } from 'react';
 import SavedArtist from './saved_artist'
 
-const SavedArtists = (props) => {
-    function displayArtists(){
-      return props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name }
-                                                                  fetchByArtist={ props.fetchByArtist }
-                                                                  key={ idx }
-                                                                  likeAction={ props.likeAction }
-                                                                  likes={ artist.likes }
-                                                                  cookieAccess={ props.cookieAccess }
-                                                                  id={ artist.id }/>)
+class SavedArtists extends Component {
+
+    state = {
+      sort: false
     }
 
-    return(
-      <div className="col-lg-12" id="savedartists">
-        <ul id="savedArtists">
-          { displayArtists() }
-        </ul>
-      </div>
-    )
+    sortArtists = () => {
+      if (this.state.sort === false){
+        this.setState({
+          sort: true
+        })
+      } else {
+        this.setState({
+          sort: false
+        })
+      }
+    }
+
+    displayArtists = () => {
+      if (this.state.sort === false){
+      return this.props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name }
+                                                                  fetchByArtist={ this.props.fetchByArtist }
+                                                                  key={ idx }
+                                                                  likeAction={ this.props.likeAction }
+                                                                  likes={ artist.likes }
+                                                                  cookieAccess={ this.props.cookieAccess }
+                                                                  id={ artist.id }/>)
+      } else {
+        return this.props.savedArtists
+        .slice()
+        .sort(function(a, b){
+                  if(a.name > b.name) return -1;
+                  if(a.name < b.name) return 1;
+                  return 0;
+              })
+        .map((artist, idx) => <SavedArtist name={ artist.name }
+                                            fetchByArtist={ this.props.fetchByArtist }
+                                            key={ idx }
+                                            likeAction={ this.props.likeAction }
+                                            likes={ artist.likes }
+                                            cookieAccess={ this.props.cookieAccess }
+                                            id={ artist.id }/>)
+
+                                                                }
+    }
+
+    render(){
+      return(
+        <div className="col-lg-12" id="savedartists">
+          <button className="btn" onClick={ () => this.sortArtists() }>Sort Alphabetically</button><br></br><br></br>
+          <ul id="savedArtists">
+            { this.displayArtists() }
+          </ul>
+        </div>
+      )
+    }
 }
 
 export default SavedArtists
