@@ -135,8 +135,8 @@ export function getSavedArtists(user_id){
   }
 }
 
-export function likeAction(artist_id, user_id, switch){
-  const data = { aritst_id: artist_id, user_id: user_id, switch: switch }
+export function likeAction(artist_id, user_id){
+  let data = { artist_id: artist_id, user_id: user_id}
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
     fetch(`http://${base_url}/likes`, {

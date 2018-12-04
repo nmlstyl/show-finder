@@ -1,23 +1,27 @@
 class LikesController < ApplicationController
 
   def like_action
-    request_to_params
-    if Like.where(arists_id: params[:artist_id], user_id: params[:user_id]).exist?
-      binding.pry
+    if Like.where(artist_id: params[:artist_id], user_id: params[:user_id]).exists?
+      @like = Like.find_by(artist_id: params[:artist_id], user_id: params[:user_id])
+
+      if @like.switch == true
+        @like.switch = false
+      else
+        @like.switch = true
+      end
+
+      @like.save
+
+      render json: @like
     else
       @like = Like.create(like_params)
+      @like.switch = true
+      @like.save
       render json: @like
     end
   end
 
   private
-
-  def request_to_params
-    data = JSON.parse(request.raw_post)
-    params[:artist_id] = data['artist_id']
-    params[:user_id] = data['user_id']
-    params[:switch] = data['switch']
-  end
 
   def like_params
      params.permit(:artist_id, :user_id, :switch)

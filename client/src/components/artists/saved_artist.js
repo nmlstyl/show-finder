@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 
 class SavedArtist extends Component {
 
-    likeAction = () => {
-      // need user_id and aritst_id
-      // upon first like switch is turned true in the backend
-      // another hit to the like button will turn the switch to false
+    triggerLike = () => {
+      this.props.likeAction( this.props.id, this.props.cookieAccess.cookies.id)
     }
 
     calculateLikes = () => {
@@ -16,7 +14,7 @@ class SavedArtist extends Component {
       return(
         <li id="savedArtist">
           <button className='btn btn-default' onClick={ () => this.props.fetchByArtist(this.props.name) }>{ this.props.name }</button><br></br><br></br>
-          <button className='btn-xs btn-default' onClick={ () => this.likeAction() }>Like</button> &nbsp; { this.calculateLikes() }
+          <button className='btn-xs btn-default' onClick={ () => this.triggerLike() }>Like</button> &nbsp; { this.calculateLikes() }
         </li>
       )
     }
