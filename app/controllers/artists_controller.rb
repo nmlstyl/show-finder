@@ -20,13 +20,6 @@ class ArtistsController < ApplicationController
     end
   end
 
-  def edit
-    @artist.find(params[:artist_id])
-    binding.pry
-    # update action with .update_column
-    # read with .read_attribute
-  end
-
   private
 
   def request_to_params
