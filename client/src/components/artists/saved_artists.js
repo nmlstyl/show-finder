@@ -20,17 +20,23 @@ class SavedArtists extends Component {
     }
 
     displayArtists = () => {
+
       if (this.state.sort === false){
-      return this.props.savedArtists.map((artist, idx) => <SavedArtist name={ artist.name }
-                                                                  fetchByArtist={ this.props.fetchByArtist }
-                                                                  key={ idx }
-                                                                  likeAction={ this.props.likeAction }
-                                                                  likes={ artist.likes }
-                                                                  cookieAccess={ this.props.cookieAccess }
-                                                                  id={ artist.id }/>)
+      return this.props.savedArtists
+      .sort(function(a, b){
+                if(a.name < b.name) return -1;
+                if(a.name > b.name) return 1;
+                return 0;
+            })
+      .map((artist, idx) => <SavedArtist name={ artist.name }
+                                          fetchByArtist={ this.props.fetchByArtist }
+                                          key={ idx }
+                                          likeAction={ this.props.likeAction }
+                                          likes={ artist.likes }
+                                          cookieAccess={ this.props.cookieAccess }
+                                          id={ artist.id }/>)
       } else {
         return this.props.savedArtists
-        .slice()
         .sort(function(a, b){
                   if(a.name > b.name) return -1;
                   if(a.name < b.name) return 1;
@@ -50,7 +56,7 @@ class SavedArtists extends Component {
     render(){
       return(
         <div className="col-lg-12" id="savedartists">
-          <button className="btn" onClick={ () => this.sortArtists() }>Sort Alphabetically</button><br></br><br></br>
+          <button className="btn btn-default" onClick={ () => this.sortArtists() }>Sort Alphabetically</button><br></br><br></br>
           <ul id="savedArtists">
             { this.displayArtists() }
           </ul>

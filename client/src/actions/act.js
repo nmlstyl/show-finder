@@ -148,7 +148,6 @@ export function likeAction(artist_id, user_id){
         })
         .then(response => response.json())
         .then(artists => {
-          debugger
           const artistData = artists.map((artist) => {
             return { name: artist.name, id: artist.id, likes: artist.likes }
           } )
