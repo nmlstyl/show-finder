@@ -28,7 +28,7 @@ gem 'rack-cors', require: 'rack/cors'
 
 # added gems
 gem 'foreman', '~> 0.82.0'
-gem 'active_model_serializers', '= 0.9'
+gem 'active_model_serializers'
 gem 'bcrypt', '~> 3.1.7'
 gem 'dotenv-rails', groups: [:development, :test]
 
