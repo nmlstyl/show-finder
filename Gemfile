@@ -28,9 +28,8 @@ gem 'rack-cors', require: 'rack/cors'
 
 # added gems
 gem 'foreman', '~> 0.82.0'
-gem 'active_model_serializers'
+# gem 'active_model_serializers' not needed in api mode i guess
 gem 'bcrypt', '~> 3.1.7'
-gem 'thor', '0.19.1'
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
