@@ -30,6 +30,7 @@ gem 'rack-cors', require: 'rack/cors'
 gem 'foreman', '~> 0.82.0'
 gem 'active_model_serializers'
 gem 'bcrypt', '~> 3.1.7'
+gem 'thor', '0.19.1'
 gem 'dotenv-rails', groups: [:development, :test]
 
 group :development, :test do
