@@ -7,7 +7,7 @@ const bandsintown_app_id = process.env.REACT_APP_BANDSINTOWN_APP_ID
 // const base_url = 'api.localhost:3001'
 
 const base_url = 'show-findr.herokuapp.com'
-
+//
 export function fetchByArtist(artist_name) {
   return (dispatch) => {
 
