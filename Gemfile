@@ -23,8 +23,6 @@ gem 'puma', '~> 3.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-
-
 # added gems
 gem 'foreman', '~> 0.82.0'
 gem 'active_model_serializers', '>= 0.9'
