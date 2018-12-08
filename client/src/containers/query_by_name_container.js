@@ -14,7 +14,9 @@ class QueryByNameContainer extends Component {
     return (
       <div>
         <br />
-        <div className="row"><ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } /></div>
+        <div className="row">
+          <ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } />
+        </div> // end row
 
         <div className="row">
           <SongkickArtists songkickArtists={ this.props.songkickArtists }
@@ -24,7 +26,7 @@ class QueryByNameContainer extends Component {
           <BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }
                               getBandsintownShows={ this.props.actions.getBandsintownShows }
                               cookieAccess={ this.props.cookieAccess } />
-        </div>
+        </div> // end row
       </div>
     )
   }
