@@ -20,7 +20,7 @@ const SongkickArtists = (props) => {
     }
 
     return(
-      <div id="artists">
+      <div className='col-sm-6' id="songkickArtists">
         { header() }
         { displayArtists() }
       </div>

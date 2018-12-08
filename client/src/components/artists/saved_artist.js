@@ -7,7 +7,6 @@ class SavedArtist extends Component {
     }
 
     calculateLikes = () => {
-      debugger
       return this.props.likes.filter(like => like.switch === 'true').length
     }
 

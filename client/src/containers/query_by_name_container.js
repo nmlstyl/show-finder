@@ -17,12 +17,13 @@ class QueryByNameContainer extends Component {
         <div className="row"><ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } /></div>
 
         <div className="row">
-          <div className="col-sm-6"><SongkickArtists songkickArtists={ this.props.songkickArtists }
-                                                     getSongkickShows={ this.props.actions.getSongkickShows }
-                                                     cookieAccess={ this.props.cookieAccess }/></div>
-          <div className="col-sm-6"><BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }
-                                                        getBandsintownShows={ this.props.actions.getBandsintownShows }
-                                                        cookieAccess={ this.props.cookieAccess }/></div>
+          <SongkickArtists songkickArtists={ this.props.songkickArtists }
+                           getSongkickShows={ this.props.actions.getSongkickShows }
+                           cookieAccess={ this.props.cookieAccess } />
+
+          <BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }
+                              getBandsintownShows={ this.props.actions.getBandsintownShows }
+                              cookieAccess={ this.props.cookieAccess } />
         </div>
       </div>
     )

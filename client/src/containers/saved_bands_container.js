@@ -19,12 +19,12 @@ class SavedBandsContainer extends Component {
     return (
       <div>
           <div className="row">
-            <div className="col-sm-6"><SongkickArtists songkickArtists={ this.props.songkickArtists }
+            <SongkickArtists songkickArtists={ this.props.songkickArtists }
                                                        getSongkickShows={ this.props.actions.getSongkickShows }
-                                                       cookieAccess={ this.props.cookieAccess }/></div>
-            <div className="col-sm-6"><BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }
+                                                       cookieAccess={ this.props.cookieAccess }/>
+            <BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }
                                                           getBandsintownShows={ this.props.actions.getBandsintownShows }
-                                                          cookieAccess={ this.props.cookieAccess }/></div>
+                                                          cookieAccess={ this.props.cookieAccess }/>
           </div>
           <h2>Saved Artist Queries</h2>
           <div className='row'><SavedArtists savedArtists={ this.props.savedArtists }
