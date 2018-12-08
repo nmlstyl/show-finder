@@ -19,9 +19,12 @@ class ArtistsController < ApplicationController
     if !Artist.find_by(artist_params)
       @artist = Artist.create(artist_params)
       @user.artists << @artist
+      @artist.save
+    else
+      @artist = Artits.find_by(artist_params)
     end
 
-    if @artist.save
+    if @artist
       render json: { artistCreated: true, name: @artist.name, id: @artist.id, likes: @artist.likes }
     else
       render json: { artistCreated: false }
