@@ -125,7 +125,6 @@ export function getSavedArtists(user_id){
     fetch(`${base_url}/users/${user_id}/artists`)
         .then(response => response.json())
         .then(artists => {
-          debugger
           const artistData = artists.map((artist) => {
             return { name: artist.name, id: artist.id, likes: artist.likes }
           } )
