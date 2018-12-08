@@ -19,13 +19,12 @@ ActiveRecord::Schema.define(version: 20181204060109) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "likes", default: 0, null: false
   end
 
   create_table "likes", force: :cascade do |t|
     t.integer "user_id"
     t.integer "artist_id"
-    t.boolean "switch"
+    t.string "switch", default: "true"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
