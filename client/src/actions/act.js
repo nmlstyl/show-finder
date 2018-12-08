@@ -75,7 +75,7 @@ export function signupThroughApi(email, password){
   let data = {email: email, password: password}
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
-    fetch(`http://${base_url}/users`, {
+    fetch(`${base_url}/users`, {
           method: 'POST',
           body: JSON.stringify(data),
           headers:{
@@ -91,7 +91,7 @@ export function loginThroughApi(email, password){
   let data = {email: email, password: password}
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
-    fetch(`http://${base_url}/apilogin`, {
+    fetch(`${base_url}/apilogin`, {
           method: 'POST',
           body: JSON.stringify(data),
           headers:{
@@ -107,7 +107,7 @@ export function createSavedArtist(name, user_id){
   let data = { name: name }
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
-    fetch(`http://${base_url}/users/${user_id}/artists`, {
+    fetch(`${base_url}/users/${user_id}/artists`, {
           method: 'POST',
           body: JSON.stringify(data),
           headers:{
@@ -122,7 +122,7 @@ export function createSavedArtist(name, user_id){
 export function getSavedArtists(user_id){
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
-    fetch(`http://${base_url}/users/${user_id}/artists`)
+    fetch(`${base_url}/users/${user_id}/artists`)
         .then(response => response.json())
         .then(artists => {
           const artistData = artists.map((artist) => {
@@ -137,7 +137,7 @@ export function likeAction(artist_id, user_id){
   let data = { artist_id: artist_id, user_id: user_id}
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
-    fetch(`http://${base_url}/likes`, {
+    fetch(`${base_url}/likes`, {
           method: 'POST',
           body: JSON.stringify(data),
           headers:{
