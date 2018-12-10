@@ -1,4 +1,4 @@
-export default function bandsintownShowsReducer(state = {shows: [], loading: false }, action) {
+export default function bandsintownShowsReducer(state = { shows: [], loading: false }, action) {
   switch (action.type) {
     case 'LOADING_BANDSINTOWN_SHOWS':
       return { ...state, loading: true}
