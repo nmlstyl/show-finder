@@ -15,20 +15,28 @@ class SavedArtist extends Component {
     }
 
     buttonColor = () => {
-      const thisUsersLike = this.props.likes.filter(like => like.user_id === parseInt(this.userId))
-      if (thisUsersLike[0].switch === 'true'){
-        return <button className='btn-xs btn-default' id='pinkButton' onClick={ () => this.triggerLike() }>Cool ?</button>
-      } else {
-        return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() }>Cool ?</button>
-      }
+      // const thisUsersLike = this.props.likes.filter(like => like.user_id === parseInt(this.userId))
+      //
+      // if (thisUsersLike.hasOwnProperty('switch')){
+      //   if (thisUsersLike[0].switch === 'true'){
+      //     return <button className='btn-xs btn-default' id='pinkButton' onClick={ () => this.triggerLike() }>Cool ?</button>
+      //   } else {
+      //     return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() }>Cool ?</button>
+      //   }
+      // }
+    }
+
+    coolButton = () => {
+      return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() }>Cool ?</button>
     }
 
     render(){
       return(
         <li id="savedArtist">
           <button className='btn btn-default' onClick={ () => this.props.fetchByArtist(this.props.name) }>{ this.props.name }</button>
+          &nbsp; <button className='btn-xs btn-default' onClick={ () => this.props.deleteArtist(this.props.id, this.userId) }>X</button>
           <br></br><br></br>
-          { this.buttonColor() } &nbsp; { this.calculateLikes() }
+          { this.coolButton() } &nbsp; { this.calculateLikes() }
         </li>
       )
     }

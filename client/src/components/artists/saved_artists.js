@@ -32,6 +32,7 @@ class SavedArtists extends Component {
                                           fetchByArtist={ this.props.fetchByArtist }
                                           key={ idx }
                                           likeAction={ this.props.likeAction }
+                                          deleteArtist= { this.props.deleteArtist }
                                           likes={ artist.likes }
                                           cookieAccess={ this.props.cookieAccess }
                                           id={ artist.id }/>)

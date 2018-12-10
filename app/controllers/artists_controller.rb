@@ -15,9 +15,12 @@ class ArtistsController < ApplicationController
   def create
     request_to_params
     @user = User.find(params[:user_id])
-
+    binding.pry
     if find_artist_casefree # if artist is found
-      @artist = Artits.find_by(params[:name]) # assign artist @artist
+      @artist = Artist.find_by(name: params[:name]) # assign artist @artist
+      if !@user.artists.find_by(id: @artist.id) # if association has been broken - fix it
+        @user.artists << @artist
+      end
     else
       @artist = Artist.create(artist_params) # else create a new artist
       @user.artists << @artist
@@ -29,6 +32,14 @@ class ArtistsController < ApplicationController
     else
       render json: { artistCreated: false }
     end
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @artist = Artist.find(params[:id])
+    @user.artists.delete(Artist.find(params[:id]))
+
+    render json: { name: @artist.name, id: @artist.id, likes: @artist.likes }
   end
 
   private
