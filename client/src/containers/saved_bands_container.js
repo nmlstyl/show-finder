@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SavedArtists from '../components/artists/saved_artists'
-import SongkickArtists from '../components/artists/songkick_artists'
-import BandsintownArtists from '../components/artists/bandsintown_artists'
+import Artists from '../components/artists/artists'
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
@@ -19,10 +18,10 @@ class SavedBandsContainer extends Component {
     return (
       <div>
           <div className="row">
-            <SongkickArtists songkickArtists={ this.props.songkickArtists }
+            <Artists songkickArtists={ this.props.songkickArtists }
                              getSongkickShows={ this.props.actions.getSongkickShows }
                              cookieAccess={ this.props.cookieAccess }/>
-            <BandsintownArtists bandsintownArtists={ this.props.bandsintownArtists }
+            <Artists bandsintownArtists={ this.props.bandsintownArtists }
                                 getBandsintownShows={ this.props.actions.getBandsintownShows }
                                 cookieAccess={ this.props.cookieAccess }/>
           </div>
