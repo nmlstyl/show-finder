@@ -7,7 +7,7 @@ import * as actions from '../../actions/act'
 const BandsintownArtist = (props) => {
 
     const upcomingEvents = () => {
-      if (props.eventCount !== undefined && props.eventCount !== 0){
+      if (props.eventCount !== 0){
         return  <div className='upcomingEvents'>Upcoming Events: { props.eventCount } &nbsp;
                 <button className="btn-xs btn-default"
                         onClick={ () => props.getBandsintownShows(props.name, props.id) }>Find Shows</button>
