@@ -28,7 +28,6 @@ const Artists = (props) => {
       if (props.hasOwnProperty('songkickArtists')){
         return displaySongkickArtists()
       }
-
       if (props.hasOwnProperty('bandsintownArtists')){
         return displayBandsintownArtists()
       }
@@ -39,7 +38,8 @@ const Artists = (props) => {
         if (props.songkickArtists.length > 0) {
           return <h2>Songkick</h2>
         }
-      } else {
+      }
+      if (props.hasOwnProperty('bandsintownArtists')) {
         if (props.bandsintownArtists.length > 0) {
           return <h2>Bandsintown</h2>
         }
