@@ -16,12 +16,12 @@ class ArtistsController < ApplicationController
     request_to_params
     @user = User.find(params[:user_id])
 
-    if !Artist.find_by(artist_params)
-      @artist = Artist.create(artist_params)
+    if find_artist_casefree # if artist is found
+      @artist = Artits.find_by(params[:name]) # assign artist @artist
+    else
+      @artist = Artist.create(artist_params) # else create a new artist
       @user.artists << @artist
       @artist.save
-    else
-      @artist = Artits.find_by(artist_params)
     end
 
     if @artist
@@ -32,6 +32,16 @@ class ArtistsController < ApplicationController
   end
 
   private
+
+  def find_artist_casefree
+    result = false
+    Artist.all.each do |artist|
+      if artist.name.casecmp?(params[:name])
+        result = artist
+      end
+    end
+    result
+  end
 
   def request_to_params
     data = JSON.parse(request.raw_post)
