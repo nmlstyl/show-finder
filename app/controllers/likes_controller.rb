@@ -12,17 +12,11 @@ class LikesController < ApplicationController
 
       @like.save
 
-      @user = @like.user
-      # sort
-      render json: @user.artists
+      render json: @like.artist
     else
       @like = Like.create(like_params)
 
-      @like.save
-
-      @user = @like.user
-      # sort
-      render json: @user.artists
+      render json: @like.artist
     end
   end
 

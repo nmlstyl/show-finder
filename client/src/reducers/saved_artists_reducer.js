@@ -10,6 +10,12 @@ export default function savedArtistsReducer(state = {artists: [], loading: false
     case 'ADD_SAVED_ARTIST':
       return { ...state, artists: [...state.artists, action.payload] }
 
+    case 'UPDATE_SAVED_ARTIST':
+      const id = action.payload.id
+      const index = state.artists.findIndex(obj => obj.id === id)
+      state.artists[index] = action.payload
+      return { ...state, artists: state.artists.slice() }
+
     default:
       return state
   }
