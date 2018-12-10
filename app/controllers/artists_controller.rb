@@ -15,7 +15,7 @@ class ArtistsController < ApplicationController
   def create
     request_to_params
     @user = User.find(params[:user_id])
-    binding.pry
+
     if find_artist_casefree # if artist is found
       @artist = Artist.find_by(name: params[:name]) # assign artist @artist
       if !@user.artists.find_by(id: @artist.id) # if association has been broken - fix it

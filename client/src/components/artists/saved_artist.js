@@ -4,6 +4,11 @@ import React, { Component } from 'react';
 
 class SavedArtist extends Component {
 
+    constructor(props){
+      super(props)
+      this.coolButton = React.createRef()
+    }
+
     userId = this.props.cookieAccess.cookies.id
 
     triggerLike = () => {
@@ -14,20 +19,16 @@ class SavedArtist extends Component {
       return this.props.likes.filter(like => like.switch === 'true').length
     }
 
-    buttonColor = () => {
-      // const thisUsersLike = this.props.likes.filter(like => like.user_id === parseInt(this.userId))
-      //
-      // if (thisUsersLike.hasOwnProperty('switch')){
-      //   if (thisUsersLike[0].switch === 'true'){
-      //     return <button className='btn-xs btn-default' id='pinkButton' onClick={ () => this.triggerLike() }>Cool ?</button>
-      //   } else {
-      //     return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() }>Cool ?</button>
-      //   }
-      // }
-    }
+    generateCoolButton = () => {
+      const thisUsersLike = this.props.likes.filter(like => like.user_id === parseInt(this.userId))[0]
 
-    coolButton = () => {
-      return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() }>Cool ?</button>
+      if (thisUsersLike.hasOwnProperty('switch')){
+        if (thisUsersLike.switch === 'true'){
+          return <button className='btn-xs btn-default' id='pinkButton' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
+        } else {
+          return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
+        }
+      }
     }
 
     render(){
@@ -36,7 +37,7 @@ class SavedArtist extends Component {
           <button className='btn btn-default' onClick={ () => this.props.fetchByArtist(this.props.name) }>{ this.props.name }</button>
           &nbsp; <button className='btn-xs btn-default' onClick={ () => this.props.deleteArtist(this.props.id, this.userId) }>X</button>
           <br></br><br></br>
-          { this.coolButton() } &nbsp; { this.calculateLikes() }
+          { this.generateCoolButton() } &nbsp; { this.calculateLikes() }
         </li>
       )
     }
