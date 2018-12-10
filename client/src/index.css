@@ -70,3 +70,8 @@ li{
     margin: 0 1em 1em 0;
     color: white;
 }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, #pinkButton{
+    background-color: purple !important;
+    color: white;
+}
