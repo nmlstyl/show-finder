@@ -20,14 +20,16 @@ class SavedArtist extends Component {
     }
 
     generateCoolButton = () => {
-      const thisUsersLike = this.props.likes.filter(like => like.user_id === parseInt(this.userId))[0]
+      let thisUsersLike = this.props.likes.find(like => like.user_id === parseInt(this.userId))
 
-      if (thisUsersLike.hasOwnProperty('switch')){
+      if (thisUsersLike !== undefined){
         if (thisUsersLike.switch === 'true'){
           return <button className='btn-xs btn-default' id='pinkButton' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
         } else {
           return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
         }
+      } else {
+        return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
       }
     }
 
