@@ -25,17 +25,17 @@ const Artists = (props) => {
     }
 
     function displayArtists(){
-      if (Array.isArray(props.songkickArtists)){
+      if (props.hasOwnProperty('songkickArtists')){
         return displaySongkickArtists()
       }
 
-      if (Array.isArray(props.bandsintownArtists)){
+      if (props.hasOwnProperty('bandsintownArtists')){
         return displayBandsintownArtists()
       }
     }
 
     function header(){
-      if (Array.isArray(props.songkickArtists)){
+      if (props.hasOwnProperty('songkickArtists')){
         if (props.songkickArtists.length > 0) {
           return <h2>Songkick</h2>
         }
@@ -44,8 +44,6 @@ const Artists = (props) => {
           return <h2>Bandsintown</h2>
         }
       }
-
-
     }
 
     return(
