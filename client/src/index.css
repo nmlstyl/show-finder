@@ -71,7 +71,37 @@ li{
     color: white;
 }
 
-.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited, #pinkButton{
-    background-color: purple !important;
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited{
+    border: none;
+    background: none;
+}
+
+.btn-xs, .btn-xs:hover{
+    background-color: #333 !important;
     color: white;
+
+    /* top | right | bottom | left */
+    padding: 4px 6px 4px 6px;
+    border: none;
+    background: none;
+}
+
+.btn-xs, #purpleButton{
+    background-color: purple !important;
+    color: black;
+
+    /* top | right | bottom | left */
+    padding: 4px 6px 4px 6px;
+    border: none;
+    background: none;
+}
+
+.btn-xs, #greyButton{
+    background-color: #333 !important;
+    color: white;
+
+    /* top | right | bottom | left */
+    padding: 4px 6px 4px 6px;
+    border: none;
+    background: none;
 }

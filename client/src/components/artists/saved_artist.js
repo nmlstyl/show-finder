@@ -24,12 +24,12 @@ class SavedArtist extends Component {
 
       if (thisUsersLike !== undefined){
         if (thisUsersLike.switch === 'true'){
-          return <button className='btn-xs btn-default' id='pinkButton' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
+          return <button className='btn-xs btn-default' id='purpleButton' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
         } else {
-          return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
+          return <button className='btn-xs btn-default' id='greyButton' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
         }
       } else {
-        return <button className='btn-xs btn-default' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
+        return <button className='btn-xs btn-default' id='greyButton' onClick={ () => this.triggerLike() } ref={ this.coolButton }>Cool ?</button>
       }
     }
 
