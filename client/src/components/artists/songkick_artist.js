@@ -25,11 +25,7 @@ const SongkickArtist = (props) => {
     }
 
     const isLoggedIn = () => {
-      if (Object.keys(props.cookieAccess.cookies).length !== 0){
-        return true
-      } else {
-        return false
-      }
+      return props.cookieAccess.cookies.hasOwnProperty('id')
     }
 
 
