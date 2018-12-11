@@ -89,11 +89,16 @@ li{
 }
 
 .btn-xs:hover{
-    background-color: #f3bf81 !important;
+    background-color: white !important;
     color: black;
 }
 
 #pinkButton{
     background-color: pink !important;
     color: black;
+}
+
+#pinkButton:hover{
+  background-color: white !important;
+  color: black;
 }
