@@ -90,10 +90,7 @@ li{
 
 .btn-xs:hover{
     background-color: #f3bf81 !important;
-}
-
-.btn-xs:active{
-    background-color: #f3bf81 !important;
+    color: black;
 }
 
 #pinkButton{

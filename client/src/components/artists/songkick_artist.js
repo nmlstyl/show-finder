@@ -9,7 +9,7 @@ const SongkickArtist = (props) => {
     const onTour = () => {
       if (props.touringUntil !== null){
         return  <div className='OnTour'>On Tour Until: {props.touringUntil} &nbsp;
-                <button className="btn-xs btn-default"
+                <button className="btn-xs"
                         onClick={ () => props.getSongkickShows(props.id) }>Find Shows</button>
                 <SongkickShows songkickShows={ props.songkickShows } artistIdFromArtist={ props.id }/>
                 </div>
@@ -20,7 +20,7 @@ const SongkickArtist = (props) => {
 
     const generateSaveButton = () => {
       if (isLoggedIn() === true && window.location.pathname !== '/savedbands'){
-        return <button className='btn-xs btn-default' onClick={ () => props.actions.createSavedArtist(props.name, props.cookieAccess.cookies.id) }>Save Artist</button>
+        return <button className='btn-xs' onClick={ () => props.actions.createSavedArtist(props.name, props.cookieAccess.cookies.id) }>Save Artist</button>
       }
     }
 
