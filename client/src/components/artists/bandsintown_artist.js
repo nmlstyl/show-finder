@@ -20,7 +20,7 @@ const BandsintownArtist = (props) => {
 
     const generateSaveButton = () => {
       if (isLoggedIn() === true && window.location.pathname !== '/savedbands'){
-        return <button className='btn-xs btn-default' onClick={ () => props.actions.createSavedArtist(props.name, props.cookieAccess.cookies.id) }>Save Artist</button>
+        return <button className='btn-xs' onClick={ () => props.actions.createSavedArtist(props.name, props.cookieAccess.cookies.id) }>Save Artist</button>
       }
     }
 

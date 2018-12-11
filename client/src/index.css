@@ -77,23 +77,26 @@ li{
 	border-radius: 50px;
 }
 
-.btn-xs, .btn-xs:hover{
-    background-color: #333 !important;
-    color: white;
-
-    /* top | right | bottom | left */
-    padding: 2px 10px;
-    border-radius: 24px;
-    border: none;
-    background: none;
+.btn-xs{
+  /* top | right | bottom | left */
+  background-color: #333 !important;
+  color: white;
+  padding: 2px 10px;
+  border-radius: 24px;
+  border: none;
+  background: none;
+  color: white;
 }
 
-.btn-xs, #pinkButton{
+.btn-xs:hover{
+    background-color: #f3bf81 !important;
+}
+
+.btn-xs:active{
+    background-color: #f3bf81 !important;
+}
+
+#pinkButton{
     background-color: pink !important;
     color: black;
-}
-
-.btn-xs, #greyButton{
-    background-color: #333 !important;
-    color: white;
 }
