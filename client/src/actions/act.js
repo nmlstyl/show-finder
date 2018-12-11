@@ -151,6 +151,7 @@ export function likeAction(artist_id, user_id){
   }
 }
 
+
 export function deleteArtist(artist_id, user_id){
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
