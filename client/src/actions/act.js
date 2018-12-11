@@ -152,7 +152,6 @@ export function likeAction(artist_id, user_id){
 }
 
 export function deleteArtist(artist_id, user_id){
-  let data = { artist_id: artist_id, user_id: user_id}
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
     fetch(`${base_url}/users/${user_id}/artists/${artist_id}`, {
