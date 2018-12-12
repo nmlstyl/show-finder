@@ -1,40 +1,51 @@
-import React from 'react'
+import React, { Component } from 'react';
 import SongkickShows from '../shows/songkick_shows'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../../actions/act'
 
-const SongkickArtist = (props) => {
+class SongkickArtist extends Component {
 
-    const onTour = () => {
-      if (props.touringUntil !== null){
-        return  <div className='OnTour'>On Tour Until: {props.touringUntil} &nbsp;
+    state = {
+      message: ''
+    }
+
+    onTour = () => {
+      if (this.props.touringUntil !== null){
+        return  <div className='OnTour'>On Tour Until: {this.props.touringUntil} &nbsp;
                 <button className="btn-xs"
-                        onClick={ () => props.getSongkickShows(props.id) }>Find Shows</button>
-                <SongkickShows songkickShows={ props.songkickShows } artistIdFromArtist={ props.id }/>
+                        onClick={ () => this.props.getSongkickShows(this.props.id) }>Find Shows</button>
+                <SongkickShows songkickShows={ this.props.songkickShows } artistIdFromArtist={ this.props.id }/>
                 </div>
       } else {
         return <p>No Shows Found</p>
       }
     }
 
-    const generateSaveButton = () => {
-      if (isLoggedIn() === true && window.location.pathname !== '/savedbands'){
-        return <button className='btn-xs' onClick={ () => props.actions.createSavedArtist(props.name, props.cookieAccess.cookies.id) }>Save Artist</button>
+    clickSaveButton = () => {
+      this.setState({ message: 'Artist Saved.' })
+      this.props.actions.createSavedArtist(this.props.name, this.props.cookieAccess.cookies.id)
+    }
+
+    generateSaveButton = () => {
+      if (this.isLoggedIn() === true && window.location.pathname !== '/savedbands'){
+        return <button className='btn-xs' onClick={ () => this.clickSaveButton() }>Save Artist</button>
       }
     }
 
-    const isLoggedIn = () => {
-      return props.cookieAccess.cookies.hasOwnProperty('id')
+    isLoggedIn = () => {
+      return this.props.cookieAccess.cookies.hasOwnProperty('id')
     }
 
-
-    return(
-      <div className="artist">
-        <h3>{ props.name } &nbsp; { generateSaveButton() }</h3>
-        { onTour() }
-      </div>
-    )
+    render(){
+      return(
+        <div className="artist">
+          { this.state.message }
+          <h3>{ this.props.name } &nbsp; { this.generateSaveButton() }</h3>
+          { this.onTour() }
+        </div>
+      )
+    }
 }
 
 function mapStateToProps(rootReducer) {
