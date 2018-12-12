@@ -43,6 +43,11 @@ form{
   border-color: #6272a4;
 }
 
+h2{
+  letter-spacing: .4em;
+  font-style: italic;
+}
+
 h3{
   border: 3px;
   border-style: solid;
