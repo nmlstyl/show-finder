@@ -15,13 +15,17 @@ const Artists = (props) => {
     }
 
     function displaySongkickArtists(){
-      return props.songkickArtists.map((artist, idx) =>
+      let results = props.songkickArtists.map((artist, idx) =>
         <SongkickArtist name={ artist.name }
                         touringUntil={ artist.touringUntil }
                         id={ artist.id }
                         getSongkickShows={ props.getSongkickShows }
                         key={ idx }
                         cookieAccess={ props.cookieAccess }/>)
+      if (window.location.pathname === '/savedbands'){
+        results = results[0]
+      }
+      return results
     }
 
     function displayArtists(){

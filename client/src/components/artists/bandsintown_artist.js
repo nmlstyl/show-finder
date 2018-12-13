@@ -28,7 +28,7 @@ class BandsintownArtist extends Component {
     }
 
     generateSaveButton = () => {
-      if (this.isLoggedIn() === true && window.location.pathname !== '/savedbands'){
+      if (this.isLoggedIn() === true && window.location.pathname === '/'){
         return <button className='btn-xs' onClick={ () => this.clickSaveButton() }>Save Artist</button>
       }
     }
