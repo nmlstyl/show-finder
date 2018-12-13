@@ -40,12 +40,12 @@ const Artists = (props) => {
     function header(){
       if (props.hasOwnProperty('songkickArtists')){
         if (props.songkickArtists.length > 0) {
-          return <h2>Songkick</h2>
+          return <h2>SONGKICK</h2>
         }
       }
       if (props.hasOwnProperty('bandsintownArtists')) {
         if (props.bandsintownArtists.length > 0) {
-          return <h2>Bandsintown</h2>
+          return <h2>BANDSINTOWN</h2>
         }
       }
     }
