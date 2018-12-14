@@ -3,7 +3,7 @@ Show-Finder
 **Show-Finder.com** queries Songkick.com and Bandsintown.com for artists and concerts.
 Users can login, save band queries and like artists.
 
-* [show-finder.com](https://www.show-finder.com)
+* Running on Heroku: [show-finder.com](https://www.show-finder.com)
 
 * copyright Joey Michalina Mariano 2018
 
@@ -21,6 +21,8 @@ Users can login, save band queries and like artists.
   - React Router
   - Redux
   - Redux Thunk middleware
+
+* Production mode avoids all CORS due to buildpack copying contents of /client to /public after npm build npm start
 
 # Usage
 
