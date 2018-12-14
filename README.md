@@ -9,7 +9,7 @@ Users can login, save band queries and like artists.
 
 # Specs
 
-* Ruby version 2.5.1
+* Ruby version 2.5.1rak
 
 * Rails API v. 5.1.6 back end
   - Active Model Serializers
