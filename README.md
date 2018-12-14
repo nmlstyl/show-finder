@@ -1,9 +1,11 @@
-# Show-Finder
-
-Queries Songkick.com and Bandsintown.com for Artists and Shows.
+Show-Finder
+======
+**Show-Finder.com** queries Songkick.com and Bandsintown.com for artists and concerts.
 Users can login, save band queries and like artists.
 
 * copyright Joey Michalina Mariano 2018
+
+# Specs
 
 * Ruby version 2.5.1
 
@@ -17,6 +19,8 @@ Users can login, save band queries and like artists.
   - React Router
   - Redux
   - Redux Thunk middleware
+
+# Usage
 
 * Install
   - clone / download
