@@ -12,6 +12,7 @@ const BandsintownShows = (props) => {
                                            date={ show.date }
                                            time={ show.time }
                                            artistId={ show.artist_id }
+                                           url={ show.url }
                                            key={ idx }/>)
   }
 

@@ -46,7 +46,8 @@ export function getSongkickShows(artist_id){
                                                                                    location: show.location.city,
                                                                                    venue: show.venue.displayName,
                                                                                    date: show.start.date,
-                                                                                   time: show.start.time }
+                                                                                   time: show.start.time,
+                                                                                   url: show.uri }
                                                                                  })
             dispatch({ type: 'FETCH_SONGKICK_SHOWS', payload: showsData })
       })
@@ -64,7 +65,8 @@ export function getBandsintownShows(name, artist_id){
                                                           location: show.venue.city,
                                                           venue: show.venue.name,
                                                           date: show.datetime.substring(0, 10),
-                                                          time: show.datetime.substring(11, 19) }
+                                                          time: show.datetime.substring(11, 19),
+                                                          url: show.url}
                                                         })
         dispatch({type: 'FETCH_BANDSINTOWN_SHOWS', payload: showData})
       })
