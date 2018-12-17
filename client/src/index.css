@@ -25,6 +25,8 @@ form{
 
 .navbar-btn{
   margin-right: 12px;
+  display: block;
+
 }
 
 .artist{
@@ -139,4 +141,8 @@ li, #savedArtist{
   border-style: solid;
   border-color: #8be9fd;
   border-width: 5px;
+}
+
+a:hover{
+  text-decoration: none;
 }

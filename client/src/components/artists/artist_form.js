@@ -23,7 +23,7 @@ class ArtistForm extends Component {
 
   render() {
     return (
-      <div className="col-md-4">
+      <div className="col-md-6">
         <form id='bandForm' name='bandText'
               onSubmit={ event => this.handleOnSubmit(event) }>
           <div className="form-group">
