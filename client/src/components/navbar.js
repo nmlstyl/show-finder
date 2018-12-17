@@ -42,10 +42,7 @@ const Navbar = (props) => {
     return(
         <header>
           <div className="row">
-
-            <div className="col-xs-6"><img className='img-responsive' src="/logo.gif" alt='logo'></img></div>
-
-            <div className="col-xs-6">
+            <div className="col-xs-8">
               <nav className="navbar">
                 <a href="/"><button type="button" className="btn btn-default navbar-btn"><span className="glyphicon glyphicon-search" aria-hidden="true"></span> &nbsp; Search By Artist</button></a>
 
@@ -58,6 +55,7 @@ const Navbar = (props) => {
                 { generateLogoutButton() }
               </nav>
             </div>
+            <div className="col-xs-4"><img className='img-responsive' src="/logo.gif" alt='logo'></img></div>
 
           </div>
         </header>
