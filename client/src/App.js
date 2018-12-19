@@ -5,6 +5,7 @@ import SignupContainer from './containers/signup_container'
 import LoginContainer from './containers/login_container'
 import SavedBandsContainer from './containers/saved_bands_container'
 import Navbar from './components/navbar'
+import Footer from './components/footer'
 
 import { withCookies } from 'react-cookie';
 import { Route } from 'react-router-dom';
@@ -19,6 +20,7 @@ class App extends Component {
           <Route path="/login" render={ () => (<LoginContainer cookieAccess={this.props.cookies}/>) } />
           <Route path="/savedbands" render={ () => (<SavedBandsContainer cookieAccess={this.props.cookies}/>) } />
           <Route exact path="/" render={ () => (<QueryByNameContainer cookieAccess={this.props.cookies} />) } />
+          <Footer />
         </div>
     )
   }
