@@ -51,7 +51,7 @@ const Artists = (props) => {
     }
 
     return(
-      <div className='col-sm-6' id="bandsintownArtists">
+      <div className='col-xs-12'>
         { header() }
         { displayArtists() }
       </div>
