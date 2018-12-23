@@ -1,3 +1,5 @@
+![show-finder](https://goo.gl/F4EHGn)
+
 Show-Finder
 ======
 **Show-Finder.com** queries Songkick.com and Bandsintown.com for artists and concerts.
