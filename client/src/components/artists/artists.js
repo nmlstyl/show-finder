@@ -51,7 +51,7 @@ const Artists = (props) => {
     }
 
     return(
-      <div className='col-xs-12'>
+      <div className='col-sm-6'>
         { header() }
         { displayArtists() }
       </div>
