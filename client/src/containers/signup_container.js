@@ -1,17 +1,13 @@
 import React, { Component } from 'react';
 import SignupForm from '../components/signup_form'
 
-import FacebookLogin from 'react-facebook-login';
+import FacebookAccess from '../components/facebookAccess';
 
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import * as actions from '../actions/act'
 
 class SignupContainer extends Component {
-
-  responseFacebook = (response) => {
-    console.log(response);
-  }
 
   success = () => {
     if (this.props.users.userCreated === true){
@@ -27,13 +23,7 @@ class SignupContainer extends Component {
     return (
       <div className="row">
         { this.success() }
-        <FacebookLogin appId="1396912973772758"
-               autoLoad={true}
-               fields="name,email,picture"
-               onClick={ this.componentClicked }
-               callback={ this.responseFacebook }
-               cssClass="my-facebook-button-class"
-               icon="fa-facebook"/>
+        <FacebookAccess aciton={ this.props.actions.signupThroughApi }/>
         <SignupForm signupThroughApi={ this.props.actions.signupThroughApi } />
       </div>
     )
