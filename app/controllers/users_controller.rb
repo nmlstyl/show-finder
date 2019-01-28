@@ -31,6 +31,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-     params.permit(:email, :password)
+     params.permit(:email, :password, :facebook_id)
   end
 end
