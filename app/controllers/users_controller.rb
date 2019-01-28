@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     data = JSON.parse(request.raw_post)
     params[:email] = data['email']
     params[:password] = data['password']
+    binding.pry
   end
 
   def user_params

@@ -73,8 +73,8 @@ export function getBandsintownShows(name, artist_id){
   }
 }
 
-export function signupThroughApi(email, password){
-  let data = {email: email, password: password}
+export function signupThroughApi(email, password, facebookId){  // add facebook_id for login with facebook
+  let data = {email: email, password: password, facebookId: facebookId}
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
     fetch(`${base_url}/users`, {
@@ -89,8 +89,8 @@ export function signupThroughApi(email, password){
   }
 }
 
-export function loginThroughApi(email, password){
-  let data = {email: email, password: password}
+export function loginThroughApi(email, password, facebookId){  // add facebook_id for login with facebook
+  let data = {email: email, password: password, facebookId: facebookId}
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
     fetch(`${base_url}/apilogin`, {

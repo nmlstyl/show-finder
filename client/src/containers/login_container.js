@@ -9,7 +9,8 @@ import * as actions from '../actions/act'
 
 class LoginContainer extends Component {
 
-  responseFacebook = (response) => {
+  responseFacebook = (response, loginThroughApi) => {
+    debugger
     console.log(response);
   }
 
@@ -31,7 +32,7 @@ class LoginContainer extends Component {
                autoLoad={true}
                fields="name,email,picture"
                onClick={ this.componentClicked }
-               callback={ this.responseFacebook }
+               callback={ (resp) => this.responseFacebook(resp, this.props.actions.loginThroughApi) }
                cssClass="my-facebook-button-class"
                icon="fa-facebook"/>
         <LoginForm loginThroughApi={ this.props.actions.loginThroughApi } />
