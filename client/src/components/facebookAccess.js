@@ -4,7 +4,7 @@ import FacebookLogin from 'react-facebook-login';
 class FacebookAccess extends Component {
 
   responseFacebook = (response, loginOrSignupThroughApi) => {
-    loginOrSignupThroughApi({ email: response.email, password: null, facebookId: response.id });
+    loginOrSignupThroughApi(response.email, null, response.id);
   }
 
   render(){

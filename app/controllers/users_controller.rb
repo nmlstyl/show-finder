@@ -28,9 +28,10 @@ class UsersController < ApplicationController
 
   def request_to_params
     data = JSON.parse(request.raw_post)
+    binding.pry
     params[:email] = data['email']
     params[:password] = data['password']
-    params[:user][:email][:facebookId] = data['facebook_id']
+    params[:facebookId] = data['facebook_id']
   end
 
   def user_params
