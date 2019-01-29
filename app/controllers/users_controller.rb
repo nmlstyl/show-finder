@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def login
     request_to_params
+    binding.pry
     @user = User.find_by(email: params[:email])
     if @user.authenticate(params[:password])
       render json: { userFound: true, id: @user.id, email: @user.email }
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
 
   def create
     request_to_params
+    binding.pry
     @user = User.new(user_params)
     if @user.valid?
       @user.save
@@ -28,7 +30,7 @@ class UsersController < ApplicationController
     data = JSON.parse(request.raw_post)
     params[:email] = data['email']
     params[:password] = data['password']
-    binding.pry
+    params[:user][:email][:facebookId] = data['facebook_id']
   end
 
   def user_params
