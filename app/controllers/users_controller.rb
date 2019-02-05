@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def login
     if !params[:user].key?('facebook_id')
-      @user = User.find_by(email: params[:email])
-      if @user.authenticate(params[:password])
+      @user = User.find_by(email: params[:user][:email])
+      if @user.authenticate(params[:user][:password])
         render json: { userFound: true, id: @user.id, email: @user.email }
       else
         render json: { userFound: false }
