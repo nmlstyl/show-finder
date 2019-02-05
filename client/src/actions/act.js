@@ -3,6 +3,7 @@ import fetch from 'isomorphic-fetch';
 const songkick_key = process.env.REACT_APP_SONGKICK_API_KEY
 const bandsintown_app_id = process.env.REACT_APP_BANDSINTOWN_APP_ID
 const base_url = process.env.REACT_APP_BASE_URL
+let data;
 
 export function fetchByArtist(artist_name) {
   return (dispatch) => {
@@ -74,7 +75,12 @@ export function getBandsintownShows(name, artist_id){
 }
 
 export function signupThroughApi(email, password, facebookId){  // add facebook_id for login with facebook
-  let data = {email: email, password: password, facebookId: facebookId }
+  if (facebookId === null){
+      data = { user: { email: email, password: password } }
+  } else {
+      data = {user: { email: email, facebook_id: facebookId } }
+  }
+
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
     fetch(`${base_url}/users`, {
@@ -90,7 +96,11 @@ export function signupThroughApi(email, password, facebookId){  // add facebook_
 }
 
 export function loginThroughApi(email, password, facebookId){  // add facebook_id for login with facebook
-  let data = {email: email, password: password, facebookId: facebookId}
+  if (facebookId === null){
+      data = { user: { email: email, password: password } }
+  } else {
+      data = {user: { email: email, facebook_id: facebookId } }
+  }
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
     fetch(`${base_url}/apilogin`, {
@@ -106,7 +116,7 @@ export function loginThroughApi(email, password, facebookId){  // add facebook_i
 }
 
 export function createSavedArtist(name, user_id){
-  let data = { name: name }
+  data = { name: name }
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
     fetch(`${base_url}/users/${user_id}/artists`, {
@@ -136,7 +146,7 @@ export function getSavedArtists(user_id){
 }
 
 export function likeAction(artist_id, user_id){
-  let data = { artist_id: artist_id, user_id: user_id}
+  data = { artist_id: artist_id, user_id: user_id}
   return dispatch => {
     dispatch({type: 'LOADING_SAVED_ARTISTS'})
     fetch(`${base_url}/likes`, {
