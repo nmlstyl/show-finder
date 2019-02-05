@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
   def login
-    if !params[:user].key?('facebook_id')
+    if !params[:user].key?('facebook_id') # check for facebook_id
       @user = User.find_by(email: params[:user][:email])
       if @user.authenticate(params[:user][:password])
         render json: { userFound: true, id: @user.id, email: @user.email }
@@ -14,7 +14,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    if !params[:user].key?('facebook_id')
+    if !params[:user].key?('facebook_id') # check for facebook_id
       @user = User.new(user_params)
       if @user.valid?
         @user.save
@@ -30,12 +30,10 @@ class UsersController < ApplicationController
 
   def fbLogin
     @user = User.find_or_create_by(email: params[:user][:email])
-
     if @user.facebook_id == nil
       @user.facebook_id = params[:user][:facebook_id]
     end
-
-    if @user.paswword == nil
+    if @user.password == nil
       @user.password = SecureRandom.alphanumeric(16)
     end
 
