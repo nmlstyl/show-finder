@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def login
-    binding.pry
     if !params[:user].key?('facebook_id')
       @user = User.find_by(email: params[:email])
       if @user.authenticate(params[:password])
@@ -15,11 +14,10 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     if !params[:user].key?('facebook_id')
       @user = User.new(user_params)
       if @user.valid?
-        @user.save .
+        @user.save
         render json: { userCreated: true, id: @user.id, email: @user.email }
       else
         errors = @user.errors.to_json
