@@ -29,7 +29,23 @@ class UsersController < ApplicationController
   end
 
   def fbLogin
+    @user = User.find_or_create_by(email: params[:user][:email])
 
+    if @user.facebook_id == nil
+      @user.facebook_id = params[:user][:facebook_id]
+    end
+
+    if @user.paswword == nil
+      @user.password = SecureRandom.alphanumeric(16)
+    end
+
+    if @user.valid?
+      @user.save
+      render json: { userCreated: true, id: @user.id, email: @user.email }
+    else
+      errors = @user.errors.to_json
+      render json: { userCreated: false, errors: errors }
+    end
   end
 
   private
