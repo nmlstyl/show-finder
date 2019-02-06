@@ -10,11 +10,11 @@ import * as actions from '../actions/act'
 class SignupContainer extends Component {
 
   success = () => {
-    if (this.props.users.userCreated === true){
+    if (this.props.users.success === true){
       this.props.cookieAccess.set('id', this.props.users.id, { path: '/'})
       return <div className="col-md-12">Signup Success!</div>
     }
-    if (this.props.users.userCreated === false){
+    if (this.props.users.success === false){
       return <div className="col-md-12">Signup Problems... Try Again?</div>
     }
   }
@@ -23,7 +23,7 @@ class SignupContainer extends Component {
     return (
       <div className="row">
         { this.success() }
-        <FacebookAccess aciton={ this.props.actions.fbLogin }/>
+        <FacebookAccess action={ this.props.actions.fbLogin }/>
         <SignupForm signupThroughApi={ this.props.actions.signupThroughApi } />
       </div>
     )

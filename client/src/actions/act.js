@@ -86,7 +86,7 @@ export function signupThroughApi(email, password){
           }
         })
         .then(response => response.json())
-        .then(user => dispatch({type: 'FETCH_USERS', payload: {userCreated: user.userCreated, email: user.email, id: user.id }}))
+        .then(user => dispatch({type: 'FETCH_USERS', payload: { success: user.success, email: user.email, id: user.id }}))
   }
 }
 
@@ -102,7 +102,7 @@ export function loginThroughApi(email, password){
           }
         })
         .then(response => response.json())
-        .then(user => dispatch({type: 'FETCH_USERS', payload: {userFound: user.userFound, email: user.email, id: user.id }}))
+        .then(user => dispatch({type: 'FETCH_USERS', payload: { success: user.success, email: user.email, id: user.id }}))
   }
 }
 
@@ -118,7 +118,7 @@ export function fbLogin(email, facebookId){
           }
         })
         .then(response => response.json())
-        .then(user => dispatch({type: 'FETCH_USERS', payload: {userFound: user.userFound, email: user.email, id: user.id }}))
+        .then(user => dispatch({type: 'FETCH_USERS', payload: { success: user.success, email: user.email, id: user.id }}))
   }
 }
 

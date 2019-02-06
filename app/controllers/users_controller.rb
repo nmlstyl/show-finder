@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   def login
     @user = User.find_by(email: params[:user][:email])
     if @user.authenticate(params[:user][:password])
-      render json: { userFound: true, id: @user.id, email: @user.email }
+      render json: { success: true, id: @user.id, email: @user.email }
     else
-      render json: { userFound: false }
+      render json: { success: false }
     end
   end
 
@@ -13,10 +13,10 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.valid?
       @user.save
-      render json: { userCreated: true, id: @user.id, email: @user.email }
+      render json: { success: true, id: @user.id, email: @user.email }
     else
       errors = @user.errors.to_json
-      render json: { userCreated: false, errors: errors }
+      render json: { success: false, errors: errors }
     end
   end
 
@@ -30,7 +30,7 @@ class UsersController < ApplicationController
     end
     @user.save
 
-    render json: { userFound: true, id: @user.id, email: @user.email }
+    render json: { success: true, id: @user.id, email: @user.email }
   end
 
   private

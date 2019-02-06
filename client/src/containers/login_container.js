@@ -10,11 +10,11 @@ import * as actions from '../actions/act'
 class LoginContainer extends Component {
 
   success = () => {
-    if (this.props.users.userFound === true){
+    if (this.props.users.success === true){
       this.props.cookieAccess.set('id', this.props.users.id, { path: '/'})
       return <div className="col-md-12">Login Success!</div>
     }
-    if (this.props.users.userFound === false){
+    if (this.props.users.success === false){
       return <div className="col-md-12">Login Problems... Try Again?</div>
     }
   }
