@@ -21,9 +21,12 @@ class SignupContainer extends Component {
 
   render() {
     return (
+
       <div className="row">
+        <div className="col-12-sm">
+          <FacebookAccess action={ this.props.actions.fbLogin }/>
+        </div>
         { this.success() }
-        <FacebookAccess action={ this.props.actions.fbLogin }/>
         <SignupForm signupThroughApi={ this.props.actions.signupThroughApi } />
       </div>
     )
