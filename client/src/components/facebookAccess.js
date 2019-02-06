@@ -16,7 +16,7 @@ class FacebookAccess extends Component {
              onClick={ this.componentClicked }
              callback={ (resp) => this.responseFacebook(resp, this.props.action) }
              render={renderProps => (
-               <button className='btn btn-default' onClick={renderProps.onClick}>Login With Facebook</button>
+               <button className='btn btn-facebook' onClick={renderProps.onClick}>Login With Facebook</button>
              )}
              />
     )

@@ -12,7 +12,7 @@ class SignupContainer extends Component {
   success = () => {
     if (this.props.users.success === true){
       this.props.cookieAccess.set('id', this.props.users.id, { path: '/'})
-      return <div className="col-md-12">Signup Success!</div>
+      return <div className="col-md-12"><br></br>Signup Success!</div>
     }
     if (this.props.users.success === false){
       return <div className="col-md-12">Signup Problems... Try Again?</div>
@@ -23,7 +23,7 @@ class SignupContainer extends Component {
     return (
 
       <div className="row">
-        <div className="col-12-sm">
+        <div className="col-md-12">
           <FacebookAccess action={ this.props.actions.fbLogin }/>
         </div>
         { this.success() }
