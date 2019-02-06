@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post 'apilogin', to: "users#login"
 
+  post 'fblogin', to: "users#fb_login"
+
   # For react-router and heroku
 
   get 'signup', to: "staticpages#fallback_index_html", constraints: ->(request) do

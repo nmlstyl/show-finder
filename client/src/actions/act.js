@@ -74,13 +74,8 @@ export function getBandsintownShows(name, artist_id){
   }
 }
 
-export function signupThroughApi(email, password, facebookId){  // add facebook_id for login with facebook
-  if (facebookId === null){
-      data = { user: { email: email, password: password } }
-  } else {
-      data = {user: { email: email, facebook_id: facebookId } }
-  }
-
+export function signupThroughApi(email, password){
+  data = { user: { email: email, password: password } }
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
     fetch(`${base_url}/users`, {
@@ -95,15 +90,27 @@ export function signupThroughApi(email, password, facebookId){  // add facebook_
   }
 }
 
-export function loginThroughApi(email, password, facebookId){  // add facebook_id for login with facebook
-  if (facebookId === null){
-      data = { user: { email: email, password: password } }
-  } else {
-      data = {user: { email: email, facebook_id: facebookId } }
-  }
+export function loginThroughApi(email, password){
+  data = { user: { email: email, password: password } }
   return dispatch => {
     dispatch({type: 'LOADING_USERS'})
     fetch(`${base_url}/apilogin`, {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(user => dispatch({type: 'FETCH_USERS', payload: {userFound: user.userFound, email: user.email, id: user.id }}))
+  }
+}
+
+export function fbLogin(email, facebookId){
+  data = { user: { email: email, facebook_id: facebookId } }
+  return dispatch => {
+    dispatch({type: 'LOADING_USERS'})
+    fetch(`${base_url}/fblogin`, {
           method: 'POST',
           body: JSON.stringify(data),
           headers:{

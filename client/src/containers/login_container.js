@@ -23,7 +23,7 @@ class LoginContainer extends Component {
     return (
       <div className="row">
         { this.success() }
-        <FacebookAccess action={ this.props.actions.loginThroughApi } />
+        <FacebookAccess action={ this.props.actions.fbLogin } />
         <LoginForm loginThroughApi={ this.props.actions.loginThroughApi } />
       </div>
     )

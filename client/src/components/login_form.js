@@ -18,7 +18,7 @@ class LoginForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-    this.props.loginThroughApi(this.state.email, this.state.password, null)
+    this.props.loginThroughApi(this.state.email, this.state.password)
     this.setState({
       email: '',
       password: ''

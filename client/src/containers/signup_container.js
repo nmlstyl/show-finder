@@ -23,7 +23,7 @@ class SignupContainer extends Component {
     return (
       <div className="row">
         { this.success() }
-        <FacebookAccess aciton={ this.props.actions.signupThroughApi }/>
+        <FacebookAccess aciton={ this.props.actions.fbLogin }/>
         <SignupForm signupThroughApi={ this.props.actions.signupThroughApi } />
       </div>
     )
