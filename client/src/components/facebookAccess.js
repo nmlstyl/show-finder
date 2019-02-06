@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import FacebookLogin from 'react-facebook-login';
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
+
 
 class FacebookAccess extends Component {
 
-  responseFacebook = (response, loginOrSignupThroughApi) => {
-    loginOrSignupThroughApi(response.email, null, response.id);
+  responseFacebook = (response, fbLogin) => {
+    fbLogin(response.email, response.id);
   }
 
   render(){
@@ -14,8 +15,10 @@ class FacebookAccess extends Component {
              fields="name,email,picture"
              onClick={ this.componentClicked }
              callback={ (resp) => this.responseFacebook(resp, this.props.action) }
-             cssClass="my-facebook-button-class"
-             icon="fa-facebook"/>
+             render={renderProps => (
+               <button className='btn btn-default' onClick={renderProps.onClick}>Login With Facebook</button>
+             )}
+             />
     )
   }
 }

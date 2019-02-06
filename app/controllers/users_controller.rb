@@ -28,6 +28,7 @@ class UsersController < ApplicationController
     if @user.password == nil
       @user.password = SecureRandom.alphanumeric(16)
     end
+    @user.save
 
     render json: { userFound: true, id: @user.id, email: @user.email }
   end
