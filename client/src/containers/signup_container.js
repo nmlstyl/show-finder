@@ -12,21 +12,20 @@ class SignupContainer extends Component {
   success = () => {
     if (this.props.users.success === true){
       this.props.cookieAccess.set('id', this.props.users.id, { path: '/'})
-      return <div className="col-md-12"><br></br>Signup Success!</div>
+      return <div><br></br>&nbsp;Success!<br></br></div>
     }
     if (this.props.users.success === false){
-      return <div className="col-md-12">Signup Problems... Try Again?</div>
+      return <div><br></br>&nbsp;Problems... :( Try Again?<br></br></div>
     }
   }
 
   render() {
     return (
-
       <div className="row">
         <div className="col-md-12">
           <FacebookAccess action={ this.props.actions.fbLogin }/>
+                    { this.success() }
         </div>
-        { this.success() }
         <SignupForm signupThroughApi={ this.props.actions.signupThroughApi } />
       </div>
     )

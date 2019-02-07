@@ -12,21 +12,26 @@ class LoginContainer extends Component {
   success = () => {
     if (this.props.users.success === true){
       this.props.cookieAccess.set('id', this.props.users.id, { path: '/'})
-      return <div className="col-md-12">Login Success!</div>
+      return <div><br></br>&nbsp;Success!<br></br></div>
     }
     if (this.props.users.success === false){
-      return <div className="col-md-12">Login Problems... Try Again?</div>
+      return <div><br></br>&nbsp;Problems... :( Try Again?<br></br></div>
     }
   }
 
   render() {
     return (
       <div className="row">
-        { this.success() }
-        <div className="col-md-12">
-        <FacebookAccess action={ this.props.actions.fbLogin } />
+
+
+        <div className="col-sm-12">
+          <FacebookAccess action={ this.props.actions.fbLogin } />
+                  { this.success() }
         </div>
+
         <LoginForm loginThroughApi={ this.props.actions.loginThroughApi } />
+
+
       </div>
     )
   }

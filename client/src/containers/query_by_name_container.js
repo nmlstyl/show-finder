@@ -19,12 +19,12 @@ class QueryByNameContainer extends Component {
 
         <div className="row">
           <Artists songkickArtists={ this.props.songkickArtists }
-                           getSongkickShows={ this.props.actions.getSongkickShows }
-                           cookieAccess={ this.props.cookieAccess } />
+                   getSongkickShows={ this.props.actions.getSongkickShows }
+                   cookieAccess={ this.props.cookieAccess } />
 
           <Artists bandsintownArtists={ this.props.bandsintownArtists }
-                              getBandsintownShows={ this.props.actions.getBandsintownShows }
-                              cookieAccess={ this.props.cookieAccess } />
+                   getBandsintownShows={ this.props.actions.getBandsintownShows }
+                   cookieAccess={ this.props.cookieAccess } />
         </div>
       </div>
     )
