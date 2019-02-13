@@ -26,9 +26,14 @@ const SavedArtist = (props) => {
       }
     }
 
+    const scrollToArtistAnchor = () => window.scrollTo(0, document.getElementById("artistAnchor").getBoundingClientRect().top)
+
     return(
       <li id="savedArtist">
-        <button className='btn btn-default' onClick={ () => props.fetchByArtist(props.name) }>{ props.name }</button>
+        <button className='btn btn-default' onClick={ () => {
+                                                              props.fetchByArtist(props.name)
+                                                              scrollToArtistAnchor()}
+                                                            }>{ props.name }</button>
         &nbsp; <button className='btn-xs' onClick={ () => props.deleteArtist(props.id, userId) }>X</button>
         <br></br><br></br>
         { generateCoolButton() } &nbsp; { calculateLikes() }

@@ -10,6 +10,10 @@ import * as actions from '../actions/act'
 
 class SavedBandsContainer extends Component {
 
+  constructor(props){
+    super(props)
+  }
+
   componentDidMount() {
     this.props.actions.getSavedArtists(this.props.cookieAccess.cookies.id)
   }
@@ -17,7 +21,7 @@ class SavedBandsContainer extends Component {
   render() {
     return (
       <div>
-          <div className="row">
+          <div className="row"  id="artistAnchor">
             <Artists songkickArtists={ this.props.songkickArtists }
                              getSongkickShows={ this.props.actions.getSongkickShows }
                              cookieAccess={ this.props.cookieAccess }/>
