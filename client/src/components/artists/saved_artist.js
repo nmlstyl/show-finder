@@ -26,7 +26,7 @@ const SavedArtist = (props) => {
       }
     }
 
-    const scrollToArtistAnchor = () => window.scrollTo(0, document.getElementById("artistAnchor").getBoundingClientRect().top)
+    const scrollToArtistAnchor = () => document.getElementById("artistAnchor").scrollIntoView()
 
     return(
       <li id="savedArtist">
