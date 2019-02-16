@@ -185,3 +185,7 @@ footer {
   border-radius: var(--round-borders);
   border-color: black;
 }
+
+#footerbar a{
+  color: #8be9fd;
+}
