@@ -13,8 +13,7 @@ const BandsintownShows = (props) => {
                                            time={ show.time }
                                            artistId={ show.artist_id }
                                            url={ show.url }
-                                           key={ idx }/>)
-  }
+                                           key={ idx }/>) }
 
     return(
       <div className="shows">

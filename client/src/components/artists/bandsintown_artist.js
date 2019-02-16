@@ -7,18 +7,33 @@ import * as actions from '../../actions/act'
 class BandsintownArtist extends Component {
 
     state = {
-      message: ''
+      message: '',
+      findshows: false
     }
 
     upcomingEvents = () => {
       if (this.props.eventCount !== 0){
         return  <div className='upcomingEvents'>Upcoming Events: { this.props.eventCount } &nbsp;
                 <button className="btn-xs"
-                        onClick={ () => this.props.getBandsintownShows(this.props.name, this.props.id) }>Find Shows</button>
+                        onClick={ () => this.toggleFindShows() }>Find Shows</button>
                 <BandsintownShows bandsintownShows={ this.props.bandsintownShows } artistIdFromArtist={ this.props.id }/>
                 </div>
       } else {
         return <p>No Shows Found</p>
+      }
+    }
+
+    toggleFindShows = () => {
+      if (this.state.findshows === false){
+        this.props.getBandsintownShows(this.props.name, this.props.id)
+        this.setState({
+          findshows: true
+        })
+      } else {
+        this.props.deleteBandsintownShows() 
+        this.setState({
+          findshows: false
+        })
       }
     }
 

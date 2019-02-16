@@ -183,3 +183,15 @@ export function deleteArtist(artist_id, user_id){
         })
   }
 }
+
+export function deleteBandsintownShows(){
+  return dispatch => {
+    dispatch({type: 'DELETE_ALL_BANDSINTOWN_SHOWS', payload: null})
+  }
+}
+
+export function deleteSongkickShows(){
+  return dispatch => {
+    dispatch({type: 'DELETE_ALL_SONGKICK_SHOWS', payload: null})
+  }
+}

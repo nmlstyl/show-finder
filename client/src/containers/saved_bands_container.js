@@ -24,9 +24,11 @@ class SavedBandsContainer extends Component {
           <div className="row"  id="artistAnchor">
             <Artists songkickArtists={ this.props.songkickArtists }
                              getSongkickShows={ this.props.actions.getSongkickShows }
+                             deleteSongkickShows={ this.props.actions.deleteSongkickShows }
                              cookieAccess={ this.props.cookieAccess }/>
             <Artists bandsintownArtists={ this.props.bandsintownArtists }
                                 getBandsintownShows={ this.props.actions.getBandsintownShows }
+                                deleteBandsintownShows={ this.props.actions.deleteBandsintownShows }
                                 cookieAccess={ this.props.cookieAccess }/>
           </div>
 
@@ -47,7 +49,9 @@ function mapStateToProps(rootReducer) {
   return {
     savedArtists: rootReducer.savedArtistsReducer.artists,
     songkickArtists: rootReducer.songkickArtistsReducer.artists,
-    bandsintownArtists: rootReducer.bandsintownArtistsReducer.artists
+    bandsintownArtists: rootReducer.bandsintownArtistsReducer.artists,
+    songkickShows: rootReducer.songkickShowsReducer.shows,
+    bandsintownShows: rootReducer.bandsintownShowsReducer.shows
   }
 }
 

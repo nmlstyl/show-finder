@@ -30,8 +30,7 @@ const SavedArtist = (props) => {
 
     return(
       <li id="savedArtist">
-        <button className='btn btn-default' onClick={ () => {
-                                                              props.fetchByArtist(props.name)
+        <button className='btn btn-default' onClick={ () => { props.fetchByArtist(props.name)
                                                               scrollToArtistAnchor()}
                                                             }>{ props.name }</button>
         &nbsp; <button className='btn-xs' onClick={ () => props.deleteArtist(props.id, userId) }>X</button>

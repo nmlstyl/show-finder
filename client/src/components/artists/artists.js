@@ -10,6 +10,7 @@ const Artists = (props) => {
                              eventCount={ artist.eventCount }
                              id={ artist.id }
                              getBandsintownShows={ props.getBandsintownShows }
+                             deleteBandsintownShows={ props.deleteBandsintownShows }
                              key={ idx }
                              cookieAccess={ props.cookieAccess }/>)
     }
@@ -20,6 +21,7 @@ const Artists = (props) => {
                         touringUntil={ artist.touringUntil }
                         id={ artist.id }
                         getSongkickShows={ props.getSongkickShows }
+                        deleteSongkickShows={ props.deleteSongkickShows }
                         key={ idx }
                         cookieAccess={ props.cookieAccess }/>)
       if (window.location.pathname === '/savedbands'){

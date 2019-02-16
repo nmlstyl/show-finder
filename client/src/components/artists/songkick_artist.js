@@ -7,18 +7,34 @@ import * as actions from '../../actions/act'
 class SongkickArtist extends Component {
 
     state = {
-      message: ''
+      message: '',
+      findshows: false
     }
 
     onTour = () => {
       if (this.props.touringUntil !== null){
         return  <div className='OnTour'>On Tour Until: {this.props.touringUntil} &nbsp;
                 <button className="btn-xs"
-                        onClick={ () => this.props.getSongkickShows(this.props.id) }>Find Shows</button>
+                        onClick={ () => this.toggleFindShows() }>Find Shows</button>
                 <SongkickShows songkickShows={ this.props.songkickShows } artistIdFromArtist={ this.props.id }/>
                 </div>
       } else {
         return <p>No Shows Found</p>
+      }
+    }
+
+
+    toggleFindShows = () => {
+      if (this.state.findshows === false){
+        this.props.getSongkickShows(this.props.id)
+        this.setState({
+          findshows: true
+        })
+      } else {
+        this.props.deleteSongkickShows()
+        this.setState({
+          findshows: false
+        })
       }
     }
 
