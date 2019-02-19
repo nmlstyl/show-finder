@@ -36,7 +36,7 @@ class LoginForm extends Component {
   render() {
     return (
       <div className="col-md-4">
-      <h2>LOGIN</h2>
+        <h2>LOGIN</h2>
 
         <form name='signup'
               onSubmit={ event => this.handleOnSubmit(event) }>

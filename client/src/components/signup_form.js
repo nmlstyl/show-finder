@@ -65,8 +65,6 @@ class SignupForm extends Component {
           <button type="submit"
                   className="btn btn-default">Submit</button>
         </form>
-
-
       </div>
     )
   }
