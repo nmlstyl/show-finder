@@ -6,12 +6,13 @@ const base_url = process.env.REACT_APP_BASE_URL
 let data;
 
 export function fetchByArtist(artist_name) {
+
   return (dispatch) => {
 
     dispatch({type: 'LOADING_SONGKICK_ARTISTS'})
-
+    let encodedName = encodeURIComponent(artist_name)
     // grab songkick artists
-    fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${songkick_key}&query=${artist_name}`)
+    fetch(`https://api.songkick.com/api/3.0/search/artists.json?apikey=${songkick_key}&query=${encodedName}`)
       .then(response => response.json())
       .then(artists => {
                         let obj = artists.resultsPage.results
@@ -26,7 +27,7 @@ export function fetchByArtist(artist_name) {
     dispatch({type: 'LOADING_BANDSINTOWN_ARTISTS'})
 
     // grab bandsintown artists
-    fetch(`https://rest.bandsintown.com/artists/${artist_name}?app_id=${bandsintown_app_id}`)
+    fetch(`https://rest.bandsintown.com/artists/${encodedName}?app_id=${bandsintown_app_id}`)
       .then(response => response.json())
       .then(artist => {
         const result = {id: artist.id, name: artist.name, eventCount: artist.upcoming_event_count}
