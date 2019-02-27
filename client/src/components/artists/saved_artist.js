@@ -26,7 +26,7 @@ const SavedArtist = (props) => {
       }
     }
 
-    const scrollToArtistAnchor = () => document.getElementById("artistAnchor").scrollIntoView()
+    const scrollToArtistAnchor = () => document.getElementById("artistAnchor").scrollIntoView({behavior: 'smooth'})
 
     return(
       <li id="savedArtist">
