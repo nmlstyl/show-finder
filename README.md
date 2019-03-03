@@ -1,4 +1,4 @@
-![show-finder](https://goo.gl/F4EHGn)
+![show-finder](https://www.show-finder.com/logo.gif)
 
 Show-Finder
 ======
