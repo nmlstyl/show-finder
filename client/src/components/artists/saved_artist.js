@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Link } from 'react-scroll'
+
 const SavedArtist = (props) => {
 
     const userId = props.cookieAccess.cookies.id
@@ -26,13 +28,12 @@ const SavedArtist = (props) => {
       }
     }
 
-    const scrollToArtistAnchor = () => document.getElementById("artistAnchor").scrollIntoView({behavior: 'smooth'})
-
     return(
       <li id="savedArtist">
-        <button className='btn btn-default' onClick={ () => { props.fetchByArtist(props.name)
-                                                              scrollToArtistAnchor()}
-                                                            }>{ props.name }</button>
+        <Link activeClass="active" to="artistAnchor" spy={true} smooth={true} duration={500}>
+        <button className='btn btn-default' onClick={ () => props.fetchByArtist(props.name) }>{ props.name }</button>
+        </Link>
+
         &nbsp; <button className='btn-xs' onClick={ () => props.deleteArtist(props.id, userId) }>X</button>
         <br></br><br></br>
         { generateCoolButton() } &nbsp; { calculateLikes() }
