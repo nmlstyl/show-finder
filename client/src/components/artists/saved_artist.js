@@ -30,7 +30,7 @@ const SavedArtist = (props) => {
 
     return(
       <li id="savedArtist">
-        <Link activeClass="active" to="artistAnchor" spy={true} smooth={true} duration={500}>
+        <Link activeClass="active" to="artistAnchor" spy={true} smooth={true} duration={1500}>
         <button className='btn btn-default' onClick={ () => props.fetchByArtist(props.name) }>{ props.name }</button>
         </Link>
 
