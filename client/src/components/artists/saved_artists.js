@@ -20,7 +20,6 @@ class SavedArtists extends Component {
     }
 
     displayArtists = () => {
-
       if (this.state.sort === false){
       return this.props.savedArtists
       .sort(function(a, b){
@@ -50,9 +49,8 @@ class SavedArtists extends Component {
                                             likes={ artist.likes }
                                             cookieAccess={ this.props.cookieAccess }
                                             id={ artist.id }/>)
-
-                                                                }
-    }
+              }  // end else
+    }  // end displayArtists
 
     render(){
       return(
