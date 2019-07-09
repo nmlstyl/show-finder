@@ -196,3 +196,15 @@ export function deleteSongkickShows(){
     dispatch({type: 'DELETE_ALL_SONGKICK_SHOWS', payload: null})
   }
 }
+
+export function deleteBandsintownArtists(){
+  return dispatch => {
+    dispatch({type: 'DELETE_ALL_BANDSINTOWN_ARTISTS', payload: null})
+  }
+}
+
+export function deleteSongkickArtists(){
+  return dispatch => {
+    dispatch({type: 'DELETE_ALL_SONGKICK_ARTISTS', payload: null})
+  }
+}

@@ -12,8 +12,8 @@ import { CookiesProvider } from 'react-cookie'
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 const store = createStore(rootReducer,
-              compose(applyMiddleware(thunk),
-                      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()) )
+                          compose(applyMiddleware(thunk))
+                          )
 
 ReactDOM.render(
 <CookiesProvider>

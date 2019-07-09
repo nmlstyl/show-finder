@@ -6,6 +6,9 @@ export default function bandsintownArtistsReducer(state = { artists: [], loading
     case 'FETCH_BANDSINTOWN_ARTISTS':
       return { artists: [action.payload], loading: false}
 
+    case 'DELETE_ALL_BANDSINTOWN_ARTISTS':
+      return { artists: [], loading: false }
+
     default:
       return state
   }

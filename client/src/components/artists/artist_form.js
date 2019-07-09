@@ -14,6 +14,8 @@ class ArtistForm extends Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
+    this.props.deleteBandsintownArtists()
+    this.props.deleteSongkickArtists()
     this.props.fetchByArtist(this.state.bandText)
     this.setState({
       [event.target.name]: ''

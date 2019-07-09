@@ -14,7 +14,10 @@ class QueryByNameContainer extends Component {
       <div>
         <br />
         <div className="row">
-          <ArtistForm fetchByArtist={ this.props.actions.fetchByArtist } />
+          <ArtistForm fetchByArtist={ this.props.actions.fetchByArtist }
+                      deleteSongkickArtists={ this.props.actions.deleteSongkickArtists }
+                      deleteBandsintownArtists={ this.props.actions.deleteBandsintownArtists }/>
+
         </div>
 
         <div className="row">
