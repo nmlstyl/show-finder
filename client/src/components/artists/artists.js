@@ -1,62 +1,74 @@
-import React from 'react'
+import React, { Component } from 'react';
 import Artist from './artist'
 
-const Artists = (props) => {
 
-    function displayBandsintownArtists(){
-      return props.bandsintownArtists.map((artist, idx) =>
+
+class Artists extends Component {
+
+    displayBandsintownArtists(){
+      return this.props.bandsintownArtists.map((artist, idx) =>
           <Artist name={ artist.name }
                   eventCount={ artist.eventCount }
                   id={ artist.id }
-                  getBandsintownShows={ props.getBandsintownShows }
-                  deleteBandsintownShows={ props.deleteBandsintownShows }
+                  getBandsintownShows={ this.props.getBandsintownShows }
+                  deleteBandsintownShows={ this.props.deleteBandsintownShows }
                   key={ idx }
-                  cookieAccess={ props.cookieAccess }/>)
+                  cookieAccess={ this.props.cookieAccess }/>)
     }
 
-    function displaySongkickArtists(){
-      let results = props.songkickArtists.map((artist, idx) =>
+    displaySongkickArtists(){
+      let results = this.props.songkickArtists.map((artist, idx) =>
         <Artist name={ artist.name }
                 touringUntil={ artist.touringUntil }
                 id={ artist.id }
-                getSongkickShows={ props.getSongkickShows }
-                deleteSongkickShows={ props.deleteSongkickShows }
+                getSongkickShows={ this.props.getSongkickShows }
+                deleteSongkickShows={ this.props.deleteSongkickShows }
                 key={ idx }
-                cookieAccess={ props.cookieAccess }/>)
+                cookieAccess={ this.props.cookieAccess }/>)
       if (window.location.pathname === '/savedbands'){
         results = results[0]
       }
       return results
     }
 
-    function displayArtists(){
-      if (props.hasOwnProperty('songkickArtists')){
-        return displaySongkickArtists()
+    displayArtists(){
+      if (this.props.hasOwnProperty('songkickArtists')){
+        if (this.props.songkickArtists.length > 0) {
+          return this.props.displaySongkickArtists()
+        } else {
+          return <h2>NO RESULTS</h2>
+        }
       }
-      if (props.hasOwnProperty('bandsintownArtists')){
-        return displayBandsintownArtists()
+      if (this.props.hasOwnProperty('bandsintownArtists')){
+        if (this.props.bandsintownArtists.length > 0 && this.props.bandsintownArtists[0].id !== undefined) {
+          return this.props.displayBandsintownArtists()
+        } else {
+          return <h2>NO RESULTS</h2>
+        }
       }
     }
 
-    function header(){
-      if (props.hasOwnProperty('songkickArtists') === true){
-        if (props.songkickArtists.length > 0) {
+    header(){
+      if (this.props.hasOwnProperty('songkickArtists') === true){
+        if (this.props.songkickArtists.length > 0) {
           return <h2>SONGKICK</h2>
         }
       }
-      if (props.hasOwnProperty('bandsintownArtists') === true) {
-        if (props.bandsintownArtists.length > 0) {
+      if (this.props.hasOwnProperty('bandsintownArtists') === true) {
+        if (this.props.bandsintownArtists.length > 0 && this.props.bandsintownArtists[0].id !== undefined) {
           return <h2>BANDSINTOWN</h2>
         }
       }
     }
 
-    return(
-      <div className='col-sm-6'>
-        { header() }
-        { displayArtists() }
-      </div>
-    )
+    render(){
+      return(
+        <div className='col-sm-6'>
+          { this.header() }
+          { this.displayArtists() }
+        </div>
+      )
+    }
 }
 
 export default Artists
