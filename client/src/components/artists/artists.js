@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Artist from './artist'
 
-
-
 class Artists extends Component {
 
-    displayBandsintownArtists(){
+    state = { searchNumber: 0 }
+
+    displayBandsintownArtists = () => {
       return this.props.bandsintownArtists.map((artist, idx) =>
           <Artist name={ artist.name }
                   eventCount={ artist.eventCount }
@@ -16,7 +16,7 @@ class Artists extends Component {
                   cookieAccess={ this.props.cookieAccess }/>)
     }
 
-    displaySongkickArtists(){
+    displaySongkickArtists = () =>{
       let results = this.props.songkickArtists.map((artist, idx) =>
         <Artist name={ artist.name }
                 touringUntil={ artist.touringUntil }
@@ -31,32 +31,34 @@ class Artists extends Component {
       return results
     }
 
-    displayArtists(){
+
+    displayArtists = () => {
       if (this.props.hasOwnProperty('songkickArtists')){
         if (this.props.songkickArtists.length > 0) {
-          return this.props.displaySongkickArtists()
-        } else {
-          return <h2>NO RESULTS</h2>
+          return this.displaySongkickArtists()
         }
       }
       if (this.props.hasOwnProperty('bandsintownArtists')){
         if (this.props.bandsintownArtists.length > 0 && this.props.bandsintownArtists[0].id !== undefined) {
-          return this.props.displayBandsintownArtists()
-        } else {
-          return <h2>NO RESULTS</h2>
+          return this.displayBandsintownArtists()
         }
       }
     }
 
-    header(){
-      if (this.props.hasOwnProperty('songkickArtists') === true){
-        if (this.props.songkickArtists.length > 0) {
+
+    header = () => {
+      if (this.props.searchCount > 0) {
+
+        if (this.props.hasOwnProperty('songkickArtists') === true){
           return <h2>SONGKICK</h2>
+        } else {
+          return <h2>NO RESULTS</h2>
         }
-      }
-      if (this.props.hasOwnProperty('bandsintownArtists') === true) {
-        if (this.props.bandsintownArtists.length > 0 && this.props.bandsintownArtists[0].id !== undefined) {
+
+        if (this.props.hasOwnProperty('bandsintownArtists') === true) {
           return <h2>BANDSINTOWN</h2>
+        } else {
+          return <h2>NO RESULTS</h2>
         }
       }
     }

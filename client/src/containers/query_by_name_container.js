@@ -8,13 +8,26 @@ import * as actions from '../actions/act'
 
 class QueryByNameContainer extends Component {
 
+
+  constructor(props){
+    super(props)
+    this.state = { searchCount: 0 }
+  }
+
+  incremSearchCount = () => {
+    this.setState({searchCount: this.state.searchCount + 1})
+  }
+
+
+
   render() {
 
     return (
       <div>
         <br />
         <div className="row">
-          <ArtistForm fetchByArtist={ this.props.actions.fetchByArtist }
+          <ArtistForm incremSearchCount={this.incremSearchCount}
+                      fetchByArtist={ this.props.actions.fetchByArtist }
                       deleteSongkickArtists={ this.props.actions.deleteSongkickArtists }
                       deleteBandsintownArtists={ this.props.actions.deleteBandsintownArtists }/>
 
@@ -24,12 +37,14 @@ class QueryByNameContainer extends Component {
           <Artists songkickArtists={ this.props.songkickArtists }
                    getSongkickShows={ this.props.actions.getSongkickShows }
                    deleteSongkickShows={ this.props.actions.deleteSongkickShows }
-                   cookieAccess={ this.props.cookieAccess }/>
+                   cookieAccess={ this.props.cookieAccess }
+                   searchCount={this.state.searchCount}/>
 
           <Artists bandsintownArtists={ this.props.bandsintownArtists }
                    getBandsintownShows={ this.props.actions.getBandsintownShows }
                    deleteBandsintownShows={ this.props.actions.deleteBandsintownShows }
-                   cookieAccess={ this.props.cookieAccess } />
+                   cookieAccess={ this.props.cookieAccess }
+                   searchCount={this.state.searchCount}/>
         </div>
       </div>
     )
