@@ -49,16 +49,16 @@ class Artists extends Component {
     header = () => {
       if (this.props.searchCount > 0) {
 
-        if (this.props.hasOwnProperty('songkickArtists') === true){
+        // what do we check for no results?
+
+        if (this.props.hasOwnProperty('songkickArtists') === true) {
           return <h2>SONGKICK</h2>
-        } else {
-          return <h2>NO RESULTS</h2>
+          // return <h2>NO RESULTS</h2>
         }
 
         if (this.props.hasOwnProperty('bandsintownArtists') === true) {
           return <h2>BANDSINTOWN</h2>
-        } else {
-          return <h2>NO RESULTS</h2>
+          // return <h2>NO RESULTS</h2>
         }
       }
     }
