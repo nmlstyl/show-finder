@@ -20,7 +20,9 @@ header{
 }
 
 .navbar {
-  display: inline !important;
+ display: list-item !important;
+ list-style: none !important;
+ margin: -16px;
 }
 
 
@@ -30,8 +32,8 @@ form{
 
 .navbar-btn{
   margin-right: 12px !important;
-  display: block !important;
-  float: left !important;
+  display: block  !important;
+
 }
 
 .artist{
