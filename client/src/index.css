@@ -19,14 +19,19 @@ header{
   border-radius: var(--round-borders) !important;
 }
 
+.navbar {
+  display: inline !important;
+}
+
 
 form{
   margin-bottom: 30px;
 }
 
 .navbar-btn{
-  margin-right: 12px;
-  display: block;
+  margin-right: 12px !important;
+  display: block !important;
+  float: left !important;
 }
 
 .artist{
