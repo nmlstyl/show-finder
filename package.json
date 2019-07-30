@@ -9,6 +9,10 @@
     "postinstall": "npm run build && npm run deploy && echo 'Client built!'"
   },
   "dependencies": {
+    "bootstrap": "^4.3.1",
+    "jquery": "^1.9.1",
+    "popper.js": "^1.15.0",
+    "react": "^16.8.6",
     "react-facebook-login": "^4.1.1"
   }
 }

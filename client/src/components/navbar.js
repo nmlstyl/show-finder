@@ -57,7 +57,7 @@ const Navbar = (props) => {
               </nav>
             </div>
 
-            <div className="col-xs-6 col-md-4"><img className='img-responsive' src="/logo.gif" alt='logo'></img></div>
+            <div className="col-xs-6 col-md-4"><img className='img-fluid' src="/logo.gif" alt='logo'></img></div>
 
           </div>
         </header>
