@@ -15,7 +15,7 @@ class Artist extends Component {
     onTour = () => {  // for Songkick
       if (this.props.touringUntil !== null){
         return  <div className='OnTour'>On Tour Until: {this.props.touringUntil} &nbsp;
-                <button className="btn-xs"
+                <button className="btn-sm"
                         onClick={ () => this.toggleFindSongkickShows() }>Find Shows</button>
                 <SongkickShows songkickShows={ this.props.songkickShows } artistIdFromArtist={ this.props.id }/>
                 </div>
@@ -27,7 +27,7 @@ class Artist extends Component {
     upcomingEvents = () => {
        if (this.props.eventCount !== 0){
          return  <div className='upcomingEvents'>Upcoming Events: { this.props.eventCount } &nbsp;
-                 <button className="btn-xs"
+                 <button className="btn-sm"
                          onClick={ () => this.toggleFindBandsintownShows() }>Find Shows</button>
                  <BandsintownShows bandsintownShows={ this.props.bandsintownShows } artistIdFromArtist={ this.props.id }/>
                  </div>
@@ -71,7 +71,7 @@ class Artist extends Component {
 
     generateSaveButton = () => {
       if (this.isLoggedIn() === true && window.location.pathname !== '/savedbands'){
-        return <button className='btn-xs' onClick={ () => this.clickSaveButton() }>Save Artist</button>
+        return <button className='btn-sm' onClick={ () => this.clickSaveButton() }>Save Artist</button>
       }
     }
 

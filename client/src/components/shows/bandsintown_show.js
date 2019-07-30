@@ -8,7 +8,7 @@ const BandsintownShow = (props) => {
         { props.venue }<br></br>
         { props.date }<br></br>
         { props.time }<br></br>
-      <a href={ props.url } target="_blank" rel="noopener noreferrer"><button className='btn-xs'>Link</button></a>
+      <a href={ props.url } target="_blank" rel="noopener noreferrer"><button className='btn-sm'>Link</button></a>
       </li>
     )
 

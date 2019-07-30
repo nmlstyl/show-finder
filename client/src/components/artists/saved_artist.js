@@ -19,12 +19,12 @@ const SavedArtist = (props) => {
 
       if (thisUsersLike !== undefined){
         if (thisUsersLike.switch === 'true'){
-          return <button className='btn-xs' id='pinkButton' onClick={ () => triggerLike() }>Cool ?</button>
+          return <button className='btn-sm' id='pinkButton' onClick={ () => triggerLike() }>Cool ?</button>
         } else {
-          return <button className='btn-xs' onClick={ () => triggerLike() }>Cool ?</button>
+          return <button className='btn-sm' onClick={ () => triggerLike() }>Cool ?</button>
         }
       } else {
-        return <button className='btn-xs' onClick={ () => triggerLike() }>Cool ?</button>
+        return <button className='btn-sm' onClick={ () => triggerLike() }>Cool ?</button>
       }
     }
 
@@ -34,7 +34,7 @@ const SavedArtist = (props) => {
         <button className='btn btn-default' onClick={ () => props.fetchByArtist(props.name) }>{ props.name }</button>
         </Link>
 
-        &nbsp; <button className='btn-xs' onClick={ () => props.deleteArtist(props.id, userId) }>X</button>
+        &nbsp; <button className='btn-sm' onClick={ () => props.deleteArtist(props.id, userId) }>X</button>
         <br></br><br></br>
         { generateCoolButton() } &nbsp; { calculateLikes() }
       </li>
